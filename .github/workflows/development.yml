@@ -10,7 +10,7 @@ on:
 
 jobs:
   scan:
-    name: Lint and SAST Scan
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
