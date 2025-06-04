@@ -6,8 +6,8 @@ import './main.css'
 import { Menu } from './components/Menu/Menu'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Menu />
-    <div className='prueba'>Hola</div>
-  </StrictMode>
+    <StrictMode>
+        <Menu />
+        <div className='prueba'>Hola</div>
+    </StrictMode>
 )
