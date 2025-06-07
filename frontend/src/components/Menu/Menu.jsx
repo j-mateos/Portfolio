@@ -4,14 +4,13 @@ export function Menu () {
     return (
         <header className='menu-header'>
             <nav className='menu-nav'>
+                <a>Presentación</a>
                 <a>Experiencia</a>
                 <a>Proyectos</a>
                 <a>Sobre mí</a>
-            </nav>
-            <section className='menu-section'>
                 <a>Modo</a>
                 <a>Idioma</a>
-            </section>
+            </nav>
         </header>
     )
 }
