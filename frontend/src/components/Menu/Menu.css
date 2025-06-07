@@ -4,7 +4,8 @@
 	align-items: center;
 	position: fixed;
 	width: 100%;
-	padding-top: 10px;
+	top: 0;
+	margin-top: 10px;
 }
 
 .menu-nav {
@@ -12,16 +13,17 @@
 	justify-content: center;
 	align-items: center;
 	padding: 0 1%;
-	font-weight: 500;
-	animation: solidMenu 5s both;
+
+	animation: solidMenu 1s both;
 	animation-timeline: scroll(root);
-	animation-range: 0 100px;
+	animation-range: 0 1px;
 
 	& a {
 		padding: 10px;
 		color: white;
 		font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
 		font-size: 16px;
+		font-weight: 500;
 
 		&:hover {
 			color: green;
