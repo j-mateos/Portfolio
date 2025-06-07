@@ -4,4 +4,5 @@ body {
 		linear-gradient(to bottom, #181e3b, #030712);
 	margin: 0;
 	min-height: 100vh;
+	font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
 }
