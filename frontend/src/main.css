@@ -5,13 +5,3 @@ body {
 	margin: 0;
 	min-height: 100vh;
 }
-
-.prueba {
-	text-align: center;
-	color: white;
-	padding: 10%;
-}
-
-#root {
-	width: 100%;
-}
