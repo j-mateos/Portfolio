@@ -1,5 +1,36 @@
 .content-main {
-	margin: 180px auto 0 auto;
+	margin-top: 150px;
 	color: white;
-	max-width: 60rem;
+
+	& section {
+		margin: 0 auto;
+		padding: 3% 0;
+		max-width: 55rem;
+	}
+}
+
+.content-presentation {
+	& h1 {
+		margin: 0;
+		font-size: 3rem;
+	}
+
+	& p {
+		margin: 1.5rem 0;
+		max-width: 35rem;
+		font-size: 1.25rem;
+		font-weight: 600;
+
+		& strong {
+			color: #f2c615;
+			font-weight: 500;
+		}
+	}
+
+	& .content-buttons {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 0.5rem 0;
+	}
 }
