@@ -15,7 +15,7 @@ export function Content () {
                 </p>
                 <div className='content-buttons'>
                     <Button pathImage="assets/dark_mode.png" text="GitHub" />
-                    <Button pathImage="assets/dark_mode2.png" text="LinkedIn" />
+                    <Button pathImage="assets/dark_mode.png" text="LinkedIn" />
                 </div>
             </section>
             <section className='content-experience'>
