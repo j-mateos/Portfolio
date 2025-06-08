@@ -13,7 +13,7 @@ export function Menu () {
                 <a>
                     <Svg name="lightMode" size={22} color="#ffffff" />
                     <Svg name="darkMode" size={22} color="#ffffff" />
-                    <Svg name="lightMode" size={22} color="#ffffff" />
+                    <Svg name="systemMode" size={22} color="#ffffff" />
                 </a>
                 <a>Idioma</a>
             </nav>
