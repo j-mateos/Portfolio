@@ -23,7 +23,7 @@ export function Content () {
                 <p>He trabajado en diversas empresas.</p>
             </section>
             <section className='content-projects'>
-                <Subtittle pathImage="assets/dark_mode.png" text="Proyectos" />
+                <Subtittle pathImage="assets/dark_mode.png" text="Tecnologías" />
                 <p>He desarrollado varios proyectos interesantes.</p>
             </section>
             <section className='content-about'>
