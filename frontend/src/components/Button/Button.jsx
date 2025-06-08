@@ -1,6 +1,8 @@
 import './Button.css'
 
+/* eslint-disable no-unused-vars */
 import { Svg } from '../Svg/Svg'
+/* eslint-enable no-unused-vars */
 
 export function Button ({ name, text, size = 15, color = '#ffffff', viewBox = '0 -960 960 960' }) {
     return (

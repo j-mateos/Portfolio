@@ -1,6 +1,8 @@
 import './Menu.css'
 
+/* eslint-disable no-unused-vars */
 import { Svg } from '../Svg/Svg'
+/* eslint-enable no-unused-vars */
 
 export function Menu () {
     return (

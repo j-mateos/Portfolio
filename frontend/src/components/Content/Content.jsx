@@ -1,7 +1,9 @@
 import './Content.css'
 
+/* eslint-disable no-unused-vars */
 import { Button } from '../Button/Button'
 import { Subtittle } from '../Subtittle/Subtittle'
+/* eslint-enable no-unused-vars */
 
 export function Content () {
     return (
