@@ -1,4 +1,5 @@
 import './Content.css'
+
 import { Button } from '../Button/Button'
 import { Subtittle } from '../Subtittle/Subtittle'
 
@@ -10,24 +11,23 @@ export function Content () {
                 <h1>Hola! Soy Juanma</h1>
                 <p>
                     <strong>Ingeniero Informático y Matemático</strong> por la UGR.<br />
-                    Actualmente vivo en Madrid, España.
-                    Estoy interesado en temas como el <strong>desarrollo</strong> y la <strong>ciberseguridad</strong>.
+                    Actualmente vivo en Madrid, España. Estoy interesado en temas como el <strong>desarrollo</strong> y la <strong>ciberseguridad</strong>.
                 </p>
                 <div className='content-buttons'>
-                    <Button pathImage="assets/dark_mode.png" text="GitHub" />
-                    <Button pathImage="assets/dark_mode.png" text="LinkedIn" />
+                    <Button name="gitHub" text="GitHub" viewBox='0 0 1024 1024' />
+                    <Button name="linkedIn" text="LinkedIn" viewBox='0 0 256 256' />
                 </div>
             </section>
             <section className='content-experience'>
-                <Subtittle pathImage="assets/dark_mode.png" text="Experiencia" />
+                <Subtittle name="experience" text="Experiencia" />
                 <p>He trabajado en diversas empresas.</p>
             </section>
             <section className='content-projects'>
-                <Subtittle pathImage="assets/dark_mode.png" text="Tecnologías" />
+                <Subtittle name="technologies" text="Tecnologías" />
                 <p>He desarrollado varios proyectos interesantes.</p>
             </section>
             <section className='content-about'>
-                <Subtittle pathImage="assets/dark_mode.png" text="Sobre mí" />
+                <Subtittle name="aboutMe" text="Sobre mí" />
                 <p>Me apasiona la tecnología y la innovación.</p>
             </section>
         </main>
