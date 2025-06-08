@@ -12,11 +12,11 @@ export function Menu () {
                 <a>Experiencia</a>
                 <a>Tecnologías</a>
                 <a>Sobre mí</a>
-                <a>
-                    <Svg name="lightMode" size={22} color="#ffffff" />
-                    <Svg name="darkMode" size={22} color="#ffffff" />
-                    <Svg name="systemMode" size={22} color="#ffffff" />
-                </a>
+                <div className='menu-div'>
+                    <Svg name="lightMode" />
+                    <Svg name="darkMode" />
+                    <Svg name="systemMode" />
+                </div>
                 <a>Idioma</a>
             </nav>
         </header>

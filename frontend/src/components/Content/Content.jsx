@@ -26,11 +26,11 @@ export function Content () {
             </section>
             <section className='content-projects'>
                 <Subtittle name="technologies" text="Tecnologías" />
-                <p>He desarrollado varios proyectos interesantes.</p>
+                <p>He desarrollado proyectos en distintas tecnologías.</p>
             </section>
             <section className='content-about'>
                 <Subtittle name="aboutMe" text="Sobre mí" />
-                <p>Me apasiona la tecnología y la innovación.</p>
+                <p>Me apasiona la programación y la innovación.</p>
             </section>
         </main>
     )

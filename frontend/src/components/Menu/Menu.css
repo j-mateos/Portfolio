@@ -18,7 +18,8 @@
 	animation-timeline: scroll(root);
 	animation-range: 0 1px;
 
-	& a {
+	& a,
+	& div {
 		padding: 8px;
 		color: white;
 		font-size: 16px;
@@ -29,6 +30,12 @@
 			color: #f2c615;
 		}
 	}
+}
+
+.menu-div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 @keyframes solidMenu {
