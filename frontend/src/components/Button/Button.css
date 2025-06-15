@@ -7,14 +7,19 @@
 
 	background-color: #1c2633;
 	border: none;
+	text-decoration: none;
 	outline: #314158 1px solid;
 	border-radius: 50px;
 	color: white;
-	font-weight: 400;
+	font-weight: 500;
 
 	&:hover {
 		cursor: pointer;
 		background-color: #f3f4f6;
 		color: #1c2633;
+
+		& svg {
+			fill: #1c2633;
+		}
 	}
 }
