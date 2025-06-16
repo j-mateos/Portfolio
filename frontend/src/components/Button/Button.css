@@ -5,21 +5,21 @@
 	gap: 0.5rem;
 	padding: 5px 3%;
 
-	background-color: #1c2633;
 	border: none;
 	text-decoration: none;
-	outline: #314158 1px solid;
+	outline: var(--dark-border-Button) 1px solid;
 	border-radius: 50px;
-	color: white;
+	background-color: var(--dark-bg-Button);
+	color: var(--dark-text-Button);
 	font-weight: 500;
 
 	&:hover {
 		cursor: pointer;
-		background-color: #f3f4f6;
-		color: #1c2633;
+		background-color: var(--light-bg-Button);
+		color: var(--light-text-Button);
 
 		& svg {
-			fill: #1c2633;
+			fill: var(--dark-bg-Button);
 		}
 	}
 }

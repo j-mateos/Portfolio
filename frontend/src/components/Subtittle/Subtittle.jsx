@@ -8,7 +8,7 @@ export function Subtittle ({ name, text, size = 30, color = '#ffffff', viewBox =
     return (
         <div className='subtittle-container'>
             <Svg name={name} size={size} color={color} viewBox={viewBox} />
-            <h2>{text}</h2>
+            <h2 style={{ color }}>{text}</h2>
         </div>
     )
 }
