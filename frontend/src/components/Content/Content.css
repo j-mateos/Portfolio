@@ -1,34 +1,96 @@
-.content-main {
+.content {
 	margin-top: 120px;
 
 	& section {
-		max-width: 55rem;
+		max-width: 65%;
 		margin: 0 auto;
-		padding: 3% 0;
+		padding: 3rem 0;
 	}
 }
 
 .content-presentation {
-	& h1 {
-		margin: 0;
-		font-size: 3rem;
-	}
+	display: flex;
+	flex-wrap: wrap;
+	justify-items: center;
+	align-items: center;
+	gap: 4rem;
 
-	& p {
-		margin: 1.5rem 0;
-		max-width: 35rem;
-		font-size: 1.25rem;
-		font-weight: 600;
+	& div {
+		& .content-image {
+			max-width: 200px;
+			border-radius: 50%;
+		}
+
+		& h1 {
+			margin: 0;
+			margin-bottom: 1.5rem;
+			font-size: 2.75rem;
+		}
+
+		& p {
+			margin: 0;
+			margin-bottom: 2rem;
+			max-width: 31rem;
+			font-size: 1.25rem;
+			font-weight: 600;
+
+			& strong {
+				color: var(--yellow-bold);
+				font-weight: 500;
+			}
+		}
+
+		& .content-buttons {
+			display: flex;
+			gap: 1rem;
+		}
+	}
+}
+
+.content-experience {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	margin: 0;
+	padding: 0;
+}
+
+#technologies {
+	&>p {
+		margin: 0;
+		margin-bottom: 2rem;
+		font-size: 1.1rem;
 
 		& strong {
 			color: var(--yellow-bold);
 			font-weight: 500;
 		}
 	}
+}
 
-	& .content-buttons {
-		display: flex;
-		gap: 1rem;
-		padding-top: 0.5rem;
+.content-technologies {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2rem;
+
+	& article {
+		padding: 2rem;
+		background: black;
+		border: 1px solid var(--dark-border-Button);
+		border-radius: 1rem;
+
+		& h3 {
+			display: flex;
+			justify-content: center;
+			margin: 0;
+			margin-bottom: 2.5rem;
+			font-size: 2rem;
+		}
+
+		& aside {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+			gap: 2rem;
+		}
 	}
 }
