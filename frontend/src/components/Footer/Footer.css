@@ -1,0 +1,18 @@
+.footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 65%;
+	margin: 5% auto;
+
+	& p {
+		margin: 0;
+		font-size: 16px;
+		font-weight: 500;
+
+		&:last-child:hover {
+			cursor: pointer;
+			color: var(--yellow-bold);
+		}
+	}
+}

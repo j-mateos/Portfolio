@@ -1,4 +1,4 @@
-.menu-header {
+.header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -8,39 +8,44 @@
 	margin-top: 10px;
 }
 
-.menu-nav {
+.header-nav {
 	display: flex;
-	justify-content: center;
-	align-items: center;
 	padding: 0 1%;
 
 	animation: solidMenu 1s both;
 	animation-timeline: scroll(root);
 	animation-range: 0 1px;
 
-	& a {
-		padding: 10px;
-		color: white;
-		font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+	& a,
+	& div {
+		padding: 8px;
+		color: var(--dark-text);
 		font-size: 16px;
 		font-weight: 500;
+		text-decoration: none;
 
 		&:hover {
-			color: green;
 			cursor: pointer;
+			color: var(--yellow-bold);
 		}
 	}
 }
 
+.header-div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 @keyframes solidMenu {
 	from {
-		outline: #314158 0px solid;
+		outline: var(--dark-border-Button) 0px solid;
 		border-radius: 50px;
 	}
 
 	to {
-		outline: #314158 0.1px solid;
+		outline: var(--dark-border-Button) 1px solid;
 		border-radius: 50px;
-		background-color: #1c2633;
+		background-color: var(--dark-bg-Button);
 	}
 }
