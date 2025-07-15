@@ -1,9 +1,8 @@
-.end-footer {
+.footer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	top: 100%;
-	max-width: 55rem;
+	max-width: 65%;
 	margin: 5% auto;
 
 	& p {

@@ -1,8 +1,8 @@
-import './End.css'
+import './Footer.css'
 
-export function End () {
+export function Footer () {
     return (
-        <footer className='end-footer'>
+        <footer className='footer'>
             <p>© 2025 Juan Manuel</p>
             <p>Contacto</p>
         </footer>

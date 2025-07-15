@@ -1,4 +1,4 @@
-.menu-header {
+.header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -8,7 +8,7 @@
 	margin-top: 10px;
 }
 
-.menu-nav {
+.header-nav {
 	display: flex;
 	padding: 0 1%;
 
@@ -31,7 +31,7 @@
 	}
 }
 
-.menu-div {
+.header-div {
 	display: flex;
 	justify-content: center;
 	align-items: center;
