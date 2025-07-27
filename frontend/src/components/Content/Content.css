@@ -1,10 +1,11 @@
 .content {
-	margin-top: 120px;
+	max-width: 50%;
+	min-width: 500px;
+	margin: 100px auto 0 auto;
+	padding: 0 1rem;
 
 	& section {
-		max-width: 65%;
-		margin: 0 auto;
-		padding: 3rem 0;
+		padding: 3rem;
 	}
 }
 
@@ -13,7 +14,7 @@
 	flex-wrap: wrap;
 	justify-items: center;
 	align-items: center;
-	gap: 4rem;
+	gap: 3rem;
 
 	& div {
 		& .content-image {
@@ -30,7 +31,7 @@
 		& p {
 			margin: 0;
 			margin-bottom: 2rem;
-			max-width: 31rem;
+			max-width: 458px;
 			font-size: 1.25rem;
 			font-weight: 600;
 
@@ -71,26 +72,31 @@
 .content-technologies {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	gap: 2rem;
+	gap: 1.5rem;
 
 	& article {
-		padding: 2rem;
+		padding: 1.5rem;
 		background: black;
-		border: 1px solid var(--dark-border-Button);
+		border: 1px solid var(--dark-border);
 		border-radius: 1rem;
 
 		& h3 {
-			display: flex;
-			justify-content: center;
+			text-align: center;
 			margin: 0;
 			margin-bottom: 2.5rem;
-			font-size: 2rem;
+			font-size: 1.8rem;
 		}
 
 		& aside {
 			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-			gap: 2rem;
+			grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+			gap: 1.5rem;
 		}
+	}
+}
+
+@media (max-width: 1000px) {
+	.content-technologies {
+		grid-template-columns: 1fr;
 	}
 }
