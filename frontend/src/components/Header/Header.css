@@ -1,11 +1,11 @@
 .header {
+	top: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 100%;
 	position: fixed;
-	width: 98%;
-	top: 0;
-	margin: 10px 1% 0 1%;
+	margin-top: 10px;
 }
 
 .header-nav {

@@ -1,17 +1,16 @@
 .content {
 	max-width: 50%;
-	min-width: 500px;
-	margin: 100px auto 0 auto;
-	padding: 0 1rem;
+	min-width: 570px;
+	margin: 80px auto 0 auto;
 
 	& section {
 		padding: 3rem;
+		scroll-margin-top: 50px;
 	}
 }
 
 .content-presentation {
 	display: flex;
-	flex-wrap: wrap;
 	justify-items: center;
 	align-items: center;
 	gap: 3rem;
@@ -31,9 +30,8 @@
 		& p {
 			margin: 0;
 			margin-bottom: 2rem;
-			max-width: 458px;
+			width: 380px;
 			font-size: 1.25rem;
-			font-weight: 600;
 
 			& strong {
 				color: var(--yellow-bold);
@@ -45,6 +43,12 @@
 			display: flex;
 			gap: 1rem;
 		}
+	}
+}
+
+@media (max-width: 1279px) {
+	.content-presentation {
+		flex-wrap: wrap;
 	}
 }
 
@@ -95,7 +99,7 @@
 	}
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1279px) {
 	.content-technologies {
 		grid-template-columns: 1fr;
 	}

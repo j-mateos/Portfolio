@@ -35,7 +35,7 @@ export function Content () {
             <section id='technologies'>
                 <Subtitle text='Tecnologías' svgName='technologies' />
                 <p>
-                    Durante mi carrera profesional, he desarrollado habilidades y experiencia en gran variedad de <strong>lenguajes y herramientas</strong>. Mi <strong>stack tecnológico</strong> es el siguiente:
+                    Durante mi carrera profesional, he desarrollado <strong>habilidades y experiencia</strong> en gran variedad de lenguajes y herramientas. Mi <strong>stack tecnológico</strong> es el siguiente:
                 </p>
                 <div className='content-technologies'>
                     <article>
