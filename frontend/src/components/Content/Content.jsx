@@ -4,6 +4,7 @@ import './Content.css'
 import { Button } from '../Button/Button'
 import { Subtitle } from '../Subtitle/Subtitle'
 import { Tool } from '../Tool/Tool'
+import { Job } from '../Job/Job'
 /* eslint-enable no-unused-vars */
 
 export function Content () {
@@ -11,7 +12,10 @@ export function Content () {
         <main className='content'>
             <section id='presentation' className='content-presentation'>
                 <div>
-                    <img src='assets/Fotografia.webp' alt='Foto sobre mi' className='content-image' />
+                    <img
+                        src='assets/Fotografia.webp'
+                        alt='Foto sobre mi'
+                        className='content-image' />
                 </div>
                 <div>
                     <h1>Hola, soy Juanma</h1>
@@ -20,16 +24,38 @@ export function Content () {
                         Actualmente estoy centrado en áreas relacionadas con el <strong>desarrollo de software</strong> y la <strong>ciberseguridad</strong>.
                     </p>
                     <div className='content-buttons'>
-                        <Button text='GitHub' url='https://github.com/Trajano1999' svgName='gitHub' />
-                        <Button text='LinkedIn' url='https://www.linkedin.com/in/juan-manuel-m-971493268/' svgName='linkedIn' />
+                        <Button
+                            text='LinkedIn'
+                            url='https://www.linkedin.com/in/juan-manuel-m-971493268/'
+                            svgName='linkedIn' />
+                        <Button
+                            text='GitHub'
+                            url='https://github.com/Trajano1999'
+                            svgName='gitHub' />
                     </div>
                 </div>
             </section>
             <section id='experience'>
                 <Subtitle text='Experiencia' svgName='experience' />
                 <ol className='content-experience'>
-                    <div>Experiencia1</div>
-                    <div>Experiencia2</div>
+                    <Job
+                        title='DevSecOps'
+                        company='TecData Engineering'
+                        startDate='Mayo 2025'
+                        endDate='Actualidad'
+                        description='Estuve haciendo muchas cosas interesantes' />
+                    <Job
+                        title='Consultor de ciberseguridad'
+                        company='Deloitte'
+                        startDate='Julio 2024'
+                        endDate='Mayo 2025'
+                        description='Estuve haciendo muchas cosas interesantes' />
+                    <Job
+                        title='Desarrollador de software'
+                        company='Servicios Integrales de Congresos'
+                        startDate='Enero 2024'
+                        endDate='Junio 2024'
+                        description='Estuve haciendo muchas cosas interesantes' />
                 </ol>
             </section>
             <section id='technologies'>
