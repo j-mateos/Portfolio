@@ -3,23 +3,27 @@
 	justify-content: center;
 	align-items: center;
 	gap: 0.5rem;
-	padding: 5px 3%;
+	padding: 5px 1rem;
 
 	border: none;
 	text-decoration: none;
-	outline: var(--dark-border-Button) 1px solid;
+	outline: var(--dark-border) 1px solid;
 	border-radius: 50px;
-	background-color: var(--dark-bg-Button);
-	color: var(--dark-text-Button);
+	background-color: var(--dark-bg);
+	color: var(--dark-text);
 	font-weight: 500;
+
+	& svg path {
+		fill: var(--light-bg);
+	}
 
 	&:hover {
 		cursor: pointer;
-		background-color: var(--light-bg-Button);
-		color: var(--light-text-Button);
+		background-color: var(--light-bg);
+		color: var(--light-text);
 
-		& svg {
-			fill: var(--dark-bg-Button);
+		& svg path {
+			fill: var(--dark-bg);
 		}
 	}
 }

@@ -4,6 +4,7 @@ import './Content.css'
 import { Button } from '../Button/Button'
 import { Subtitle } from '../Subtitle/Subtitle'
 import { Tool } from '../Tool/Tool'
+import { Job } from '../Job/Job'
 /* eslint-enable no-unused-vars */
 
 export function Content () {
@@ -11,25 +12,50 @@ export function Content () {
         <main className='content'>
             <section id='presentation' className='content-presentation'>
                 <div>
-                    <img src='assets/Fotografia.webp' alt='Foto sobre mi' className='content-image' />
+                    <img
+                        src='assets/Fotografia.webp'
+                        alt='Foto sobre mi'
+                        className='content-image' />
                 </div>
                 <div>
                     <h1>Hola, soy Juanma</h1>
                     <p>
-                        <strong>Ingeniero Informático y Matemático</strong> por la UGR.<br />
-                        Actualmente vivo en Madrid, España. Estoy interesado en temas como el <strong>desarrollo</strong> y la <strong>ciberseguridad</strong>.
+                        <strong>Ingeniero Informático y Matemático</strong> por la Universidad de Granada. <br />
+                        Actualmente estoy centrado en áreas relacionadas con el <strong>desarrollo de software</strong> y la <strong>ciberseguridad</strong>.
                     </p>
                     <div className='content-buttons'>
-                        <Button text='GitHub' url='https://github.com/Trajano1999' svgName='gitHub' />
-                        <Button text='LinkedIn' url='https://www.linkedin.com/in/juan-manuel-m-971493268/' svgName='linkedIn' />
+                        <Button
+                            text='LinkedIn'
+                            url='https://www.linkedin.com/in/juan-manuel-m-971493268/'
+                            svgName='linkedIn' />
+                        <Button
+                            text='GitHub'
+                            url='https://github.com/Trajano1999'
+                            svgName='gitHub' />
                     </div>
                 </div>
             </section>
             <section id='experience'>
                 <Subtitle text='Experiencia' svgName='experience' />
                 <ol className='content-experience'>
-                    <div>Experiencia1</div>
-                    <div>Experiencia2</div>
+                    <Job
+                        title='DevSecOps'
+                        company='TecData Engineering'
+                        startDate='Mayo 2025'
+                        endDate='Actualidad'
+                        description='Estuve haciendo muchas cosas interesantes' />
+                    <Job
+                        title='Consultor de ciberseguridad'
+                        company='Deloitte'
+                        startDate='Julio 2024'
+                        endDate='Mayo 2025'
+                        description='Estuve haciendo muchas cosas interesantes' />
+                    <Job
+                        title='Desarrollador de software'
+                        company='Servicios Integrales de Congresos'
+                        startDate='Enero 2024'
+                        endDate='Junio 2024'
+                        description='Estuve haciendo muchas cosas interesantes' />
                 </ol>
             </section>
             <section id='technologies'>
@@ -41,41 +67,41 @@ export function Content () {
                     <article>
                         <h3>Frontend</h3>
                         <aside>
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
+                            <Tool text='HTML' svgName='html' />
+                            <Tool text='CSS' svgName='css' />
+                            <Tool text='Bootstrap' svgName='bootstrap' />
+                            <Tool text='JavaScript' svgName='javaScript' />
+                            <Tool text='Figma' svgName='figma' />
                         </aside>
                     </article>
                     <article>
                         <h3>Backend</h3>
                         <aside>
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
+                            <Tool text='C++' svgName='c++' />
+                            <Tool text='Java' svgName='java' />
+                            <Tool text='Python' svgName='python' />
+                            <Tool text='NodeJS' svgName='nodejs' />
+                            <Tool text='Ruby' svgName='ruby' />
+                            <Tool text='MySQL' svgName='mysql' />
+                            <Tool text='PostgreSQL' svgName='postgresql' />
                         </aside>
                     </article>
                     <article>
                         <h3>Aprendiendo</h3>
                         <aside>
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
+                            <Tool text='React' svgName='react' />
+                            <Tool text='Spring' svgName='spring' />
+                            <Tool text='Docker' svgName='docker' />
+                            <Tool text='Kubernetes' svgName='kubernetes' />
+                            <Tool text='AWS' svgName='aws' />
                         </aside>
                     </article>
                     <article>
                         <h3>Herramientas</h3>
                         <aside>
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
-                            <Tool text='GitHub' svgName='gitHub' />
+                            <Tool text='Git' svgName='git' />
+                            <Tool text='Bash' svgName='bash' />
+                            <Tool text='VSCode' svgName='vscode' />
                         </aside>
                     </article>
                 </div>
