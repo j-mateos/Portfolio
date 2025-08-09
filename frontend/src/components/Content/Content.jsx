@@ -5,6 +5,8 @@ import { Button } from '../Button/Button'
 import { Subtitle } from '../Subtitle/Subtitle'
 import { Tool } from '../Tool/Tool'
 import { Job } from '../Job/Job'
+
+import image from '../../assets/Fotografia.webp'
 /* eslint-enable no-unused-vars */
 
 export function Content () {
@@ -13,7 +15,7 @@ export function Content () {
             <section id='presentation' className='content-presentation'>
                 <div>
                     <img
-                        src='assets/Fotografia.webp'
+                        src={image}
                         alt='Foto sobre mi'
                         className='content-image' />
                 </div>
@@ -43,19 +45,27 @@ export function Content () {
                         company='TecData Engineering'
                         startDate='Mayo 2025'
                         endDate='Actualidad'
-                        description='Estuve haciendo muchas cosas interesantes' />
+                        description={[
+                            'Desarrollo fullstack de una aplicación ASPM para la gestión de vulnerabilidades de seguridad.'
+                        ]} />
                     <Job
                         title='Consultor de ciberseguridad'
                         company='Deloitte'
                         startDate='Julio 2024'
                         endDate='Mayo 2025'
-                        description='Estuve haciendo muchas cosas interesantes' />
+                        description={[
+                            'Automatización de procesos de escaneos de seguridad de aplicaciones en el SDLC.',
+                            'Experiencia en el modelo DevSecOps y la integración de pipelines CI/CD.'
+                        ]} />
                     <Job
                         title='Desarrollador de software'
                         company='Servicios Integrales de Congresos'
                         startDate='Enero 2024'
                         endDate='Junio 2024'
-                        description='Estuve haciendo muchas cosas interesantes' />
+                        description={[
+                            'Desarrollo y diseño de aplicaciones, una móvil y otra de escritorio.',
+                            'Gestión de una API REST común para distintas páginas web.'
+                        ]} />
                 </ol>
             </section>
             <section id='technologies'>
@@ -70,7 +80,7 @@ export function Content () {
                             <Tool text='HTML' svgName='html' />
                             <Tool text='CSS' svgName='css' />
                             <Tool text='Bootstrap' svgName='bootstrap' />
-                            <Tool text='JavaScript' svgName='javaScript' />
+                            <Tool text='JavaScript' svgName='javascript' />
                             <Tool text='Figma' svgName='figma' />
                         </aside>
                     </article>
