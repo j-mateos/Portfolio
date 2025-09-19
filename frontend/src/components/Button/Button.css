@@ -13,8 +13,8 @@
 	color: var(--dark-text);
 	font-weight: 500;
 
-	& svg path {
-		fill: var(--light-bg);
+	&>svg>path {
+		fill: var(--dark-text);
 	}
 
 	&:hover {
@@ -22,8 +22,8 @@
 		background-color: var(--light-bg);
 		color: var(--light-text);
 
-		& svg path {
-			fill: var(--dark-bg);
+		&>svg>path {
+			fill: var(--light-text);
 		}
 	}
 }
