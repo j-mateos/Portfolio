@@ -118,7 +118,7 @@ export function Content () {
             </section>
             <section id='about-me'>
                 <Subtitle text='Sobre mí' svgName='aboutMe' />
-                <p>Me apasiona la programación y la innovación.</p>
+                <p className='content-about-me'>Me apasiona la programación y la innovación.</p>
             </section>
         </main>
     )
