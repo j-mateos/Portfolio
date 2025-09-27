@@ -21,7 +21,7 @@
     "eslint": "8.0.1",
     "eslint-config-standard": "17.1.0",
     "eslint-plugin-import": "2.31.0",
-    "eslint-plugin-n": "16.0.0npm i",
+    "eslint-plugin-n": "16.0.0",
     "eslint-plugin-promise": "6.6.0",
     "vite": "6.3.5"
   }
