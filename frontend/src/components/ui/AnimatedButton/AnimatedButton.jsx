@@ -1,5 +1,4 @@
 import '../LinkButton/LinkButton.css'
-import './AnimatedButton.css'
 import { useState } from 'react'
 
 /* eslint-disable no-unused-vars */
@@ -26,8 +25,8 @@ export function AnimatedButton ({ text, copyToClipboard, svgName, svgSize = 15, 
             {copied
                 ? (
                     <>
+                        <Svg name='check' size={20} colors={svgColors} />
                         <span>Copiado</span>
-                        <Svg name='check' size={18} colors={svgColors} />
                     </>
                 )
                 : (
