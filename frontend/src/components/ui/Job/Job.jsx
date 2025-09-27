@@ -10,7 +10,11 @@ export function Job ({ title, company, startDate, endDate, description }) {
                 <span>{company}</span>
             </div>
             <span>{startDate} - {endDate}</span>
-            <p>{description}</p>
+            <ul>
+                {description.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
+            </ul>
         </li>
     )
 }

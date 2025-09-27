@@ -3,7 +3,7 @@
 	min-width: 570px;
 	margin: 120px auto 0 auto;
 
-	& section {
+	&>section {
 		padding: 3rem;
 		scroll-margin-top: 50px;
 	}
@@ -15,33 +15,33 @@
 	align-items: center;
 	gap: 3rem;
 
-	& div {
-		& .content-image {
-			max-width: 200px;
+	&>div {
+		&>.content-image {
+			max-width: 240px;
 			border-radius: 50%;
 		}
 
-		& h1 {
+		&>h1 {
 			margin: 0;
 			margin-bottom: 1.5rem;
 			font-size: 2.75rem;
 			white-space: nowrap;
 		}
 
-		& p {
+		&>p {
 			margin: 0;
 			margin-bottom: 2rem;
 			min-width: 380px;
 			max-width: 500px;
-			font-size: 1.25rem;
+			font-size: 1.1rem;
 
-			& strong {
+			&>strong {
 				color: var(--yellow-bold);
 				font-weight: 500;
 			}
 		}
 
-		& .content-buttons {
+		&>.content-buttons {
 			display: flex;
 			gap: 1rem;
 		}
@@ -63,7 +63,7 @@
 		margin-bottom: 2.5rem;
 		font-size: 1.1rem;
 
-		& strong {
+		&>strong {
 			color: var(--yellow-bold);
 			font-weight: 500;
 		}
@@ -75,25 +75,29 @@
 	grid-template-columns: repeat(2, 1fr);
 	gap: 1.5rem;
 
-	& article {
+	&>article {
 		padding: 1.5rem;
 		background: black;
 		border: 1px solid var(--dark-border);
 		border-radius: 1rem;
 
-		& h3 {
+		&>h3 {
 			text-align: center;
 			margin: 0;
 			margin-bottom: 2.5rem;
 			font-size: 1.8rem;
 		}
 
-		& aside {
+		&>aside {
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
 			gap: 1.5rem;
 		}
 	}
+}
+
+.content-about-me {
+	font-size: 1.1rem;
 }
 
 @media (max-width: 799px) {
@@ -106,7 +110,7 @@
 	.content-experience .job-title {
 		display: block;
 
-		& h3 {
+		&>h3 {
 			margin-bottom: .8rem;
 		}
 

@@ -6,15 +6,22 @@
 	--yellow-bold: #f2c615;
 
 	/* Light Theme */
-	--light-bg: #f3f4f6;
-	--light-text: #1c2633;
-	--light-border: #314158;
+	--light-main-bg: var(--dark-main-bg);
+	--light-bg: var(--dark-text);
+	--light-text: var(--dark-bg);
+	--light-border: var(--dark-border);
+
+	--light-job-company: var(--dark-job-company);
+	--light-job-date: var(--dark-job-date);
 
 	/* Dark Theme */
 	--dark-main-bg:
 		radial-gradient(circle at 50% -20%, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0) 50%),
 		linear-gradient(to bottom, #181e3b, #030712);
-	--dark-bg: var(--light-text);
-	--dark-text: var(--light-bg);
-	--dark-border: var(--light-border);
+	--dark-bg: #1c2633;
+	--dark-text: #f3f4f6;
+	--dark-border: #314158;
+
+	--dark-job-company: #2cc9ff;
+	--dark-job-date: #fffc;
 }

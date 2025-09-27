@@ -4,11 +4,11 @@
 	gap: 0.8rem;
 	margin-bottom: 2rem;
 
-	& svg path {
-		fill: var(--light-bg);
+	&>svg>path {
+		fill: var(--dark-text);
 	}
 
-	& h2 {
+	&>h2 {
 		font-size: 1.8rem;
 		margin: 0;
 	}
