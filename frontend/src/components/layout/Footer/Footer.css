@@ -5,12 +5,16 @@
 	min-width: 570px;
 	margin: 3rem auto;
 
-	&>p {
-		margin: 0;
-		padding: 0 3rem;
+	& * {
+		margin: 0 3rem;
 		font-weight: 500;
+	}
 
-		&:last-child:hover {
+	&>a {
+		text-decoration: none;
+		color: var(--dark-text);
+
+		&:hover {
 			cursor: pointer;
 			color: var(--yellow-bold);
 		}

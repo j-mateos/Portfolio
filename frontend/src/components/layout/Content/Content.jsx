@@ -1,12 +1,13 @@
 import './Content.css'
 
 /* eslint-disable no-unused-vars */
-import { Button } from '../Button/Button'
-import { Subtitle } from '../Subtitle/Subtitle'
-import { Tool } from '../Tool/Tool'
-import { Job } from '../Job/Job'
+import { Subtitle } from '../../ui/Subtitle/Subtitle'
+import { Tool } from '../../ui/Tool/Tool'
+import { Job } from '../../ui/Job/Job'
+import { LinkButton } from '../../ui/LinkButton/LinkButton'
+import { AnimatedButton } from '../../ui/AnimatedButton/AnimatedButton'
 
-import image from '../../assets/Fotografia.webp'
+import image from '../../../assets/Fotografia.webp'
 /* eslint-enable no-unused-vars */
 
 export function Content () {
@@ -16,7 +17,7 @@ export function Content () {
                 <div>
                     <img
                         src={image}
-                        alt='Foto sobre mi'
+                        alt='Mi fotografía'
                         className='content-image' />
                 </div>
                 <div>
@@ -26,11 +27,16 @@ export function Content () {
                         Actualmente estoy centrado en áreas relacionadas con el <strong>desarrollo de software</strong> y la <strong>ciberseguridad</strong>.
                     </p>
                     <div className='content-buttons'>
-                        <Button
+                        <AnimatedButton
+                            text='Correo'
+                            copyToClipboard='correojumape@gmail.com'
+                            svgName='email'
+                            svgSize={17} />
+                        <LinkButton
                             text='LinkedIn'
                             url='https://www.linkedin.com/in/juan-manuel-m-971493268/'
                             svgName='linkedIn' />
-                        <Button
+                        <LinkButton
                             text='GitHub'
                             url='https://github.com/Trajano1999'
                             svgName='gitHub' />

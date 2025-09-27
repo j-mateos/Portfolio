@@ -4,7 +4,7 @@ export function Footer () {
     return (
         <footer className='footer'>
             <p>© 2025 Juan Manuel</p>
-            <p>Contacto</p>
+            <a href='#presentation'>Contacto</a>
         </footer>
     )
 }
