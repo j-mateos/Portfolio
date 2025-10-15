@@ -1,7 +1,7 @@
 .subtitle {
 	display: flex;
 	align-items: center;
-	gap: 0.8rem;
+	gap: .8rem;
 	margin-bottom: 2rem;
 
 	&>svg>path {
@@ -10,6 +10,5 @@
 
 	&>h2 {
 		font-size: 1.8rem;
-		margin: 0;
 	}
 }
