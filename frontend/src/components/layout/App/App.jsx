@@ -1,5 +1,4 @@
 import './App.css'
-import './variables.css'
 
 /* eslint-disable no-unused-vars */
 import { Header } from '../Header/Header'
