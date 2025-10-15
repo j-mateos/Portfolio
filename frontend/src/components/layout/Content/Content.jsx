@@ -7,7 +7,7 @@ import { Job } from '../../ui/Job/Job'
 import { LinkButton } from '../../ui/LinkButton/LinkButton'
 import { AnimatedButton } from '../../ui/AnimatedButton/AnimatedButton'
 
-import image from '../../../assets/Fotografia.webp'
+import image from '../../../assets/photo.webp'
 /* eslint-enable no-unused-vars */
 
 export function Content () {
