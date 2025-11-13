@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "lint": "eslint . --ext .js,.jsx,.cjs",
-    "lint-fix": "eslint . --ext .js,.jsx,.cjs --fix",
+    "lint": "eslint . --ext .js,.jsx,.cjs --fix",
+    "test": "vitest",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -15,14 +15,19 @@
     "react-dom": "19.1.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.0",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "@vitejs/plugin-react-swc": "3.10.2",
+    "@vitest/ui": "4.0.8",
     "eslint": "8.0.1",
     "eslint-config-standard": "17.1.0",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-n": "16.0.0",
     "eslint-plugin-promise": "6.6.0",
-    "vite": "6.3.5"
+    "jsdom": "26.0.0",
+    "vite": "6.4.1",
+    "vitest": "4.0.8"
   }
 }
