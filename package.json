@@ -1,14 +1,14 @@
 {
-  "name": "frontend",
+  "name": "portfolio",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "lint": "eslint . --ext .js,.jsx,.cjs --fix",
+    "dev": "vite --config ./config/vite.config.js",
+    "lint": "eslint . --config config/.eslintrc.cjs --ext .js,.jsx,.cjs --fix",
     "test": "vitest",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "vite build --config ./config/vite.config.js",
+    "preview": "vite preview --config ./config/vite.config.js"
   },
   "dependencies": {
     "react": "19.1.0",

@@ -1,7 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { Header } from './Header'
 
-// Mock del componente Svg
 vi.mock('../../ui/Svg/Svg', () => ({
     Svg: ({ name }) => <div data-testid="svg">{name}</div>
 }))

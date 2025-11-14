@@ -1,9 +1,0 @@
-# Files
-package-lock.json
-*.log
-
-# Folders
-.vscode/
-node_modules/
-dist/
-build/

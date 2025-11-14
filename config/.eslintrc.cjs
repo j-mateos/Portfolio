@@ -12,8 +12,12 @@ module.exports = {
     overrides: [
         {
             files: ['**/*.test.js', '**/*.test.jsx'],
-            env: {
-                'vitest-globals/env': true
+            globals: {
+                describe: 'readonly',
+                it: 'readonly',
+                expect: 'readonly',
+                beforeEach: 'readonly',
+                afterEach: 'readonly'
             }
         }
     ]

@@ -1,1 +1,10 @@
+# Files
+package-lock.json
+*.log
 .env
+
+# Folders
+.vscode/
+node_modules/
+dist/
+build/
