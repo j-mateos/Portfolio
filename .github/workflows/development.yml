@@ -17,7 +17,7 @@ jobs:
       - name: testing out
         run: echo "Files in workspace:"; ls -la
       - name: Install dependencies
-        run: npm ci --no-fund --no-audit
+        run: npm i --no-fund --no-audit
       - name: Run linter
         run: npm run lint
 
@@ -28,7 +28,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Install dependencies
-        run: npm ci --no-fund --no-audit
+        run: npm i --no-fund --no-audit
       - name: Run tests
         run: npm test
 
@@ -39,7 +39,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Install dependencies
-        run: npm ci --no-fund --no-audit
+        run: npm i --no-fund --no-audit
       - name: Build project
         run: npm run build
       - name: Upload build artifacts
@@ -68,7 +68,7 @@ jobs:
         with:
           languages: javascript
       - name: Install dependencies
-        run: npm ci --no-fund --no-audit
+        run: npm i --no-fund --no-audit
       - name: Run CodeQL SAST scan
         uses: github/codeql-action/analyze@v3
 
