@@ -8,7 +8,6 @@ package-lock.json
 .vscode/
 node_modules/
 dist/
-build/
-docker/
 .git/
 .github/
+docker/
