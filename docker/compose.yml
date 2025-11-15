@@ -1,32 +1,12 @@
 services:
-  frontend:
+  portfolio:
     build:
-      context: .. # Specifies the path to the Dockerfile.
-      dockerfile: ./docker/Dockerfile
+      context: ..                                # Specifies the root of the project.
+      dockerfile: docker/Dockerfile
     ports:
-      - "3000:5173" # Maps ports in the container to ports on the host machine.
+      - "3000:5173"                              # Map ports in the container to ports on the host machine.
     volumes:
-      - ./src:/app/src # Reflects immediately any local code changes in the container without having to rebuild the image.
-      - /app/node_modules # Prevents local node_modules from overwriting those in the container, because modules installed inside the container may be different.
+      - ../src:/app/src                          # Reflects immediately any local code changes in the container without having to rebuild the image.
+      - /app/node_modules                        # Prevents local node_modules from overwriting those in the container, because modules installed inside the container may be different.
     environment:
-      - CHOKIDAR_USEPOLLING=true # Checks periodically files for changes instead of using the native watch.
-
-# backend:
-#   build: ./backend
-#   ports:
-#     - "4000:4000"
-#   environment:
-#     - DATABASE_URL=postgresql://user:password@db:5432/mydb
-#   depends_on:
-#     - db
-
-# db:
-#   image: postgres:15
-#   environment:
-#     POSTGRES_USER: user
-#     POSTGRES_PASSWORD: password
-#     POSTGRES_DB: mydb
-#   ports:
-#     - "5432:5432"
-#   volumes:
-#     - pgdata:/var/lib/postgresql/data
+      - CHOKIDAR_USEPOLLING=true                 # Checks periodically files for changes instead of using the native watch.
