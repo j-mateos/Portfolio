@@ -1,0 +1,34 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config ./config/vite.config.js",
+    "lint": "eslint . --config config/.eslintrc.cjs --ext .js,.jsx,.cjs --fix",
+    "test": "vitest --config ./config/vite.config.js",
+    "build": "vite build --config ./config/vite.config.js",
+    "preview": "vite preview --config ./config/vite.config.js"
+  },
+  "dependencies": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.0",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "@vitejs/plugin-react-swc": "3.10.2",
+    "@vitest/ui": "4.0.8",
+    "eslint": "8.57.1",
+    "eslint-config-standard": "17.1.0",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-n": "16.6.2",
+    "eslint-plugin-promise": "6.6.0",
+    "eslint-plugin-vitest": "0.5.4",
+    "jsdom": "26.0.0",
+    "vite": "6.4.1",
+    "vitest": "4.0.8"
+  }
+}

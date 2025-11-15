@@ -4,4 +4,7 @@
 [![Development Workflow](https://github.com/Trajano1999/Portfolio/actions/workflows/development.yml/badge.svg)](https://github.com/Trajano1999/Portfolio/actions/workflows/development.yml)
 
 Execute project:
-``docker-compose -f compose.yml up``
+``docker compose -f ./docker/compose.yml up``
+
+Clean dependencies:
+``npx depcheck``

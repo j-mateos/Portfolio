@@ -2,9 +2,13 @@
 package-lock.json
 *.log
 .env
+*.md
 
 # Folders
 .vscode/
 node_modules/
 dist/
 build/
+docker/
+.git/
+.github/
