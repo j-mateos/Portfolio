@@ -1,5 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react'
+
+/* eslint-disable no-unused-vars */
 import { Header } from './Header'
+/* eslint-enable no-unused-vars */
 
 vi.mock('../../ui/Svg/Svg', () => ({
     Svg: ({ name }) => <div data-testid="svg">{name}</div>
