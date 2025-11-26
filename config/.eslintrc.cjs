@@ -9,6 +9,7 @@ module.exports = {
     },
     ignorePatterns: [
         'github/',
+        'dist/',
         'docker/',
         'node_modules/'
     ],

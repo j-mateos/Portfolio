@@ -9,18 +9,86 @@ on:
       - main
 
 jobs:
-  scan:
-    name: Lint, SAST Scan, Build, Deploy and DAST Scan
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
-
+        uses: actions/checkout@v4
       - name: Install dependencies
         run: npm i --no-fund --no-audit
+      - name: Run linter
+        run: npm run lint
 
-      - name: Apply linter
-        run: npm run lint-fix
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm i --no-fund --no-audit
+      - name: Run tests
+        run: npm test
 
-      - name: Build
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm i --no-fund --no-audit
+      - name: Build project
         run: npm run build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-dist
+          path: dist/
+
+  sast:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Download build
+        uses: actions/download-artifact@v4
+        with:
+          name: artifact-dist
+          path: dist/
+      - name: Initialize SAST
+        uses: github/codeql-action/init@v4
+        with:
+          languages: javascript
+      - name: Install dependencies
+        run: npm i --no-fund --no-audit
+      - name: Run CodeQL SAST scan
+        uses: github/codeql-action/analyze@v4
+
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: sast
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+  #     - name: Download build
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: artifact-dist
+  #         path: dist/
+  #     - name: Run deploy
+  #       run: ./scripts/deploy.sh
+
+  # dast:
+  #   runs-on: ubuntu-latest
+  #   needs: deploy
+  #   steps:
+  #     - name: Run OWASP ZAP DAST scan
+  #       uses: zaproxy/action-baseline@v0.15.0
+  #       with:
+  #         target: "https://web.com"
