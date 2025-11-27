@@ -21,7 +21,7 @@ export function Content () {
                         className='content-image' />
                 </div>
                 <div>
-                    <h1>Hola, soy Juanma</h1>
+                    <h1>Hola, soy Juanma!</h1>
                     <p>
                         <strong>Ingeniero Informático y Matemático</strong> por la Universidad de Granada. <br />
                         Actualmente estoy centrado en áreas relacionadas con el <strong>desarrollo de software</strong> y la <strong>ciberseguridad</strong>.
