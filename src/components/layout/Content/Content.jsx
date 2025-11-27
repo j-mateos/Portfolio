@@ -93,13 +93,14 @@ export function Content () {
                     <article>
                         <h3>Backend</h3>
                         <aside>
-                            <Tool text='C++' svgName='c++' />
                             <Tool text='Java' svgName='java' />
-                            <Tool text='Python' svgName='python' />
                             <Tool text='NodeJS' svgName='nodejs' />
+                            <Tool text='Python' svgName='python' />
+                            <Tool text='C++' svgName='c++' />
+                            <Tool text='C' svgName='c' />
                             <Tool text='Ruby' svgName='ruby' />
-                            <Tool text='MySQL' svgName='mysql' />
                             <Tool text='PostgreSQL' svgName='postgresql' />
+                            <Tool text='MySQL' svgName='mysql' />
                         </aside>
                     </article>
                     <article>
