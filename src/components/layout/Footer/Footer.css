@@ -1,0 +1,22 @@
+.footer {
+	display: flex;
+	justify-content: space-between;
+	max-width: 50%;
+	min-width: 570px;
+	margin: 3rem auto;
+
+	& * {
+		margin: 0 3rem;
+		font-weight: 500;
+	}
+
+	&>a {
+		text-decoration: none;
+		color: var(--dark-text);
+
+		&:hover {
+			cursor: pointer;
+			color: var(--yellow-bold);
+		}
+	}
+}

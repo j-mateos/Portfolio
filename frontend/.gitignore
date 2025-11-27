@@ -1,9 +1,0 @@
-# Archivos
-package-lock.json
-*.log
-
-# Carpetas
-.vscode/
-node_modules/
-dist/
-build/

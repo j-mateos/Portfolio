@@ -1,0 +1,51 @@
+.job {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	border-left: 1px solid white;
+	padding-left: 2rem;
+
+	&>span {
+		margin-bottom: .5rem;
+		font-weight: 300;
+		color: var(--dark-job-date);
+	}
+
+	&>ul {
+		margin-bottom: .5rem;
+		list-style-type: none;
+	}
+}
+
+.job-circle {
+	position: absolute;
+	top: 6px;
+	left: 0;
+	transform: translateX(-50%);
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	box-shadow: 0 0 0 6px var(--dark-border);
+	background-color: white;
+}
+
+.job-title {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: nowrap;
+	gap: .8rem;
+	margin-bottom: .5rem;
+
+	& * {
+		flex-shrink: 0;
+	}
+
+	&>h3 {
+		color: var(--yellow-bold);
+		font-weight: 500;
+	}
+
+	&>span {
+		color: var(--dark-job-company);
+	}
+}

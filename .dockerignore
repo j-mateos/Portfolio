@@ -1,0 +1,13 @@
+# Files
+package-lock.json
+*.log
+.env
+*.md
+
+# Folders
+.vscode/
+node_modules/
+dist/
+.git/
+.github/
+docker/
