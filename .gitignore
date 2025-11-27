@@ -1,7 +1,6 @@
 # Files
 package-lock.json
 *.log
-.env
 
 # Folders
 .vscode/
