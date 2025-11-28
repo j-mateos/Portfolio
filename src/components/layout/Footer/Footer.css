@@ -7,7 +7,7 @@
 
 	& * {
 		margin: 0 3rem;
-		font-weight: 500;
+		opacity: .6;
 	}
 
 	&>a {
@@ -16,7 +16,7 @@
 
 		&:hover {
 			cursor: pointer;
-			color: var(--yellow-bold);
+			opacity: 1;
 		}
 	}
 }

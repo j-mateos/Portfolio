@@ -138,7 +138,7 @@ export function Content () {
                         soluciones eficientes, escalables y seguras.
                     </p>
                     <p>
-                        Mi objetivo es seguir <strong>desarrollándome</strong> como profesional, asumir nuevos retos y participar en iniciativas que impulsen
+                        Mi objetivo es seguir <strong>desarrollándome como profesional</strong>, asumir nuevos retos y participar en iniciativas que impulsen
                         la innovación en el ámbito del software. Dentro de algunos años me gustaría contar con la experiencia necesaria para 
                         ser <strong>arquitecto de software</strong>, y así poder tomar decisiones clave en el diseño de sistemas complejos, asegurando su 
                         robustez, escalabilidad, seguridad y eficiencia.

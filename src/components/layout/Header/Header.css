@@ -47,7 +47,7 @@
 
 .header-modes {
 	position: absolute;
-	top: 42px;
+	top: 44px;
 	display: flex;
 	flex-direction: column;
 	gap: .25rem;
