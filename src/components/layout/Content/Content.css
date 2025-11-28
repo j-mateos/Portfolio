@@ -29,8 +29,7 @@
 
 		&>p {
 			margin-bottom: 2rem;
-			min-width: 380px;
-			max-width: 500px;
+			width: 374px;
 			font-size: 1.1rem;
 
 			&>strong {
@@ -90,8 +89,17 @@
 	}
 }
 
-.content-about-me {
+.content-about-me>p {
 	font-size: 1.1rem;
+
+	&:nth-child(1) {
+		margin-bottom: 1.5rem;
+	}
+
+	&>strong {
+		color: var(--yellow-bold);
+		font-weight: 400;
+	}
 }
 
 @media (max-width: 799px) {
@@ -99,6 +107,10 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+	}
+
+	.content-presentation>div:nth-child(2) {
+		text-align: center;
 	}
 
 	.content-experience .job-title {
@@ -113,12 +125,20 @@
 		}
 	}
 
+	#technologies>p {
+		text-align: center;
+	}
+
 	.content-technologies {
 		width: 80%;
 
 		&>article>aside {
 			gap: 1rem !important;
 		}
+	}
+
+	.content-about-me {
+		text-align: center;
 	}
 }
 
