@@ -21,10 +21,11 @@ export function Content () {
                         className='content-image' />
                 </div>
                 <div>
-                    <h1>Hola, soy Juanma!</h1>
+                    <h1>Hola, soy Juanma</h1>
                     <p>
-                        <strong>Ingeniero Informático y Matemático</strong> por la Universidad de Granada. <br />
-                        Actualmente estoy centrado en áreas relacionadas con el <strong>desarrollo de software</strong> y la <strong>ciberseguridad</strong>.
+                        Soy <strong>Ingeniero Informático y Matemático</strong> por la Universidad de Granada.
+                        <br />
+                        Actualmente centro mi actividad profesional en el <strong>desarrollo de software</strong> y la <strong>ciberseguridad</strong>.
                     </p>
                     <div className='content-buttons'>
                         <AnimatedButton
@@ -43,6 +44,7 @@ export function Content () {
                     </div>
                 </div>
             </section>
+
             <section id='experience'>
                 <Subtitle text='Experiencia' svgName='experience' />
                 <ol className='content-experience'>
@@ -74,10 +76,12 @@ export function Content () {
                         ]} />
                 </ol>
             </section>
+
             <section id='technologies'>
                 <Subtitle text='Tecnologías' svgName='technologies' />
                 <p>
-                    Durante mi carrera profesional, he desarrollado <strong>habilidades y experiencia</strong> en gran variedad de lenguajes y herramientas. Mi <strong>stack tecnológico</strong> es el siguiente:
+                    Durante mi carrera profesional, he desarrollado <strong>habilidades y experiencia</strong> en gran variedad de lenguajes y herramientas.
+                    Mi <strong>stack tecnológico</strong> es el siguiente:
                 </p>
                 <div className='content-technologies'>
                     <article>
@@ -123,9 +127,23 @@ export function Content () {
                     </article>
                 </div>
             </section>
+
             <section id='about-me'>
                 <Subtitle text='Sobre mí' svgName='aboutMe' />
-                <p className='content-about-me'>Me apasiona la programación y la innovación.</p>
+                <div className='content-about-me'>
+                    <p>
+                        Aunque mi nombre es Juan Manuel, todo el mundo me conoce como <strong>Juanma</strong>. Terminé el doble grado hace unos años y desde
+                        entonces he centrado mi recorrido profesional tanto en el <strong>desarrollo de software</strong>, como en la <strong>ciberseguridad</strong>,
+                        disciplinas que requieren <strong>aprendizaje continuo</strong> y un dominio sólido de herramientas y conceptos técnicos para poder crear
+                        soluciones eficientes, escalables y seguras.
+                    </p>
+                    <p>
+                        Mi objetivo es seguir <strong>desarrollándome</strong> como profesional, asumir nuevos retos y participar en iniciativas que impulsen
+                        la innovación en el ámbito del software. Dentro de algunos años me gustaría contar con la experiencia necesaria para 
+                        ser <strong>arquitecto de software</strong>, y así poder tomar decisiones clave en el diseño de sistemas complejos, asegurando su 
+                        robustez, escalabilidad, seguridad y eficiencia.
+                    </p>
+                </div>
             </section>
         </main>
     )

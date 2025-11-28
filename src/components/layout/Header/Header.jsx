@@ -63,7 +63,6 @@ export function Header () {
                         </div>
                     )}
                 </div>
-                <a>Idioma</a>
             </nav>
         </header>
     )
