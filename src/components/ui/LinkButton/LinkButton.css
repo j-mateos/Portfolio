@@ -7,23 +7,23 @@
 
 	border: none;
 	text-decoration: none;
-	outline: var(--dark-border) 1px solid;
+	outline: var(--border) 1px solid;
 	border-radius: 50px;
-	background-color: var(--dark-bg);
-	color: var(--dark-text);
+	background-color: var(--background);
+	color: var(--text);
 	font-weight: 500;
 
 	&>svg>path {
-		fill: var(--dark-text);
+		fill: var(--text);
 	}
 
 	&:hover {
 		cursor: pointer;
-		background-color: var(--light-bg);
-		color: var(--light-text);
+		background-color: var(--text);
+		color: var(--background);
 
 		&>svg>path {
-			fill: var(--light-text);
+			fill: var(--background);
 		}
 	}
 }

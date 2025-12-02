@@ -33,7 +33,7 @@
 			font-size: 1.1rem;
 
 			&>strong {
-				color: var(--yellow-bold);
+				color: var(--bold);
 				font-weight: 500;
 			}
 		}
@@ -58,7 +58,7 @@
 		font-size: 1.1rem;
 
 		&>strong {
-			color: var(--yellow-bold);
+			color: var(--bold);
 			font-weight: 500;
 		}
 	}
@@ -71,8 +71,8 @@
 
 	&>article {
 		padding: 1.5rem;
-		background: black;
-		border: 1px solid var(--dark-border);
+		background-color: var(--technology-background);
+		border: 1px solid var(--border);
 		border-radius: 1rem;
 
 		&>h3 {
@@ -97,7 +97,7 @@
 	}
 
 	&>strong {
-		color: var(--yellow-bold);
+		color: var(--bold);
 		font-weight: 400;
 	}
 }
