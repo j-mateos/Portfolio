@@ -1,4 +1,4 @@
-import { svgMap } from './svgMap';
+import { svgMap } from './svgMap'
 
 export function Svg ({ name, size = 22 }) {
     return (
