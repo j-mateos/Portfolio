@@ -7,6 +7,10 @@ module.exports = {
             jsx: true
         }
     },
+    env: {
+        browser: true,
+        es2021: true
+    },
     ignorePatterns: [
         'github/',
         'dist/',
