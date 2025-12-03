@@ -3,44 +3,39 @@ import { useState, useEffect, useRef } from 'react'
 
 /* eslint-disable no-unused-vars */
 import { Svg } from '../../ui/Svg/Svg'
+import { useTheme } from '../App/ThemeContext.jsx'
 /* eslint-enable no-unused-vars */
 
 export function Header () {
-    const [currentMode, setCurrentMode] = useState('systemMode')
+    const [, setMode, selectedMode] = useTheme()
     const [showModes, setShowModes] = useState(false)
-    const modes = [
-        { key: 'systemMode', label: 'System' },
-        { key: 'lightMode', label: 'Light' },
-        { key: 'darkMode', label: 'Dark' }
-    ]
     const modesRef = useRef(null)
+    const modes = [
+        { key: 'system', label: 'Sistema' },
+        { key: 'light', label: 'Claro' },
+        { key: 'dark', label: 'Oscuro' }
+    ]
 
-    const handleCurrentModeClick = () => {
-        setShowModes(!showModes)
-    }
+    const handleCurrentModeClick = () => setShowModes(!showModes)
 
-    const handleModeSelect = (mode) => {
-        setCurrentMode(mode)
+    const handleModeSelect = (selected) => {
+        // setMode receives 'system', 'light', or 'dark'
+        setMode(selected)
         setShowModes(false)
     }
 
+    const handleClickOutside = (event) => {
+        if (modesRef.current && !modesRef.current.contains(event.target)) {
+            setShowModes(false)
+        }
+    }
+
     useEffect(() => {
-        function handleClickOutside (event) {
-            if (modesRef.current && !modesRef.current.contains(event.target)) {
-                setShowModes(false)
-            }
-        }
-
-        if (showModes) {
-            document.addEventListener('mousedown', handleClickOutside)
-        } else {
-            document.removeEventListener('mousedown', handleClickOutside)
-        }
-
+        document.addEventListener('mousedown', handleClickOutside)
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
-    }, [showModes])
+    }, [])
 
     return (
         <header className='header'>
@@ -51,13 +46,13 @@ export function Header () {
                 <a href='#about-me' className='nav-link'>Sobre mí</a>
                 <div ref={modesRef}>
                     <div className='header-current-modes' onClick={handleCurrentModeClick}>
-                        <Svg name={currentMode} />
+                        <Svg name={selectedMode + 'Mode'} />
                     </div>
-                    { showModes && (
+                    {showModes && (
                         <div className='header-modes'>
-                            {modes.map((mode) => (
-                                <span key={mode.key} onClick={() => handleModeSelect(mode.key)}>
-                                    {mode.label}
+                            {modes.map((m) => (
+                                <span key={m.key} onClick={() => handleModeSelect(m.key)}>
+                                    {m.label}
                                 </span>
                             ))}
                         </div>
