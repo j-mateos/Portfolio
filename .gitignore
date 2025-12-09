@@ -2,6 +2,7 @@
 package-lock.json
 *.log
 .env
+process.md
 
 # Folders
 .vscode/

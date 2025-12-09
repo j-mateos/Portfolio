@@ -1,10 +1,13 @@
 import './Footer.css'
+import { useTranslation } from 'react-i18next'
 
 export function Footer () {
+    const { t } = useTranslation()
+
     return (
         <footer className='footer'>
-            <p>© 2025 Juan Manuel</p>
-            <a href='#presentation'>Contacto</a>
+            <p>© Juan Manuel</p>
+            <a href='#presentation'>{t('footer.contact')}</a>
         </footer>
     )
 }

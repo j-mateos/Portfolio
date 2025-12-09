@@ -7,16 +7,16 @@
 
 	& * {
 		margin: 0 3rem;
-		font-weight: 500;
+		opacity: .7;
 	}
 
 	&>a {
 		text-decoration: none;
-		color: var(--dark-text);
+		color: var(--text);
 
 		&:hover {
 			cursor: pointer;
-			color: var(--yellow-bold);
+			opacity: 1;
 		}
 	}
 }
