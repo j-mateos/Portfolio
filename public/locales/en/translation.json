@@ -1,0 +1,95 @@
+{
+	"header": {
+		"navPresentation": "Presentation",
+		"navExperience": "Experience",
+		"navTechnologies": "Technologies",
+		"navAboutMe": "About me",
+		"modeSystem": "System",
+		"modeLight": "Light",
+		"modeDark": "Dark"
+	},
+	"presentation": {
+		"photoAlt": "Personal image",
+		"greeting": "Hello, I'm Juanma",
+		"p1": {
+			"part1": "I am a",
+			"bold1": "Computer Science and Mathematics Engineer",
+			"part2": "from the University of Granada."
+		},
+		"p2": {
+			"part1": "I currently focus my professional activity on",
+			"bold1": "software development",
+			"part2": "and",
+			"bold2": "cybersecurity",
+			"part3": "."
+		},
+		"emailBtn": "Email"
+	},
+	"experience": {
+		"title": "Experience",
+		"job1": {
+			"title": "DevSecOps",
+			"company": "TecData Engineering",
+			"startDate": "May 2025",
+			"endDate": "Current",
+			"desc1": "Full-stack development of an ASPM application for managing security vulnerabilities."
+		},
+		"job2": {
+			"title": "Cybersecurity Consultant",
+			"company": "Deloitte",
+			"startDate": "July 2024",
+			"endDate": "May 2025",
+			"desc1": "Automation of application security scanning processes in the SDLC.",
+			"desc2": "Experience with the DevSecOps model and CI/CD pipeline integration."
+		},
+		"job3": {
+			"title": "Software Developer",
+			"company": "Servicios Integrales de Congresos",
+			"startDate": "January 2024",
+			"endDate": "June 2024",
+			"desc1": "Development and design of applications, one mobile and one desktop.",
+			"desc2": "Management of a common REST API for various websites."
+		}
+	},
+	"technologies": {
+		"title": "Technologies",
+		"p1": {
+			"part1": "Throughout my professional career, I have developed",
+			"bold1": "skills and experience",
+			"part2": "in a wide variety of languages and tools."
+		},
+		"p2": {
+			"part1": "My",
+			"bold1": "technological stack",
+			"part2": "is the following:"
+		},
+		"frontend": "Frontend",
+		"backend": "Backend",
+		"tools": "Tools",
+		"learning": "Learning"
+	},
+	"aboutMe": {
+		"title": "About Me",
+		"p1": {
+			"part1": "Although my name is Juan Manuel, everyone knows me as",
+			"bold1": "Juanma",
+			"part2": ". I finished my double degree a few years ago and since then I have focused my professional career both on",
+			"bold2": "software development ",
+			"part3": "and",
+			"bold3": "cybersecurity",
+			"part4": ", disciplines that require",
+			"bold4": "continuous learning",
+			"part5": "and a solid command of technical tools and concepts to create efficient, scalable, and secure solutions."
+		},
+		"p2": {
+			"part1": "My goal is to continue",
+			"bold1": "developing as a professional",
+			"part2": ", take on new challenges, and participate in initiatives that drive innovation in the software field. In a few years, I would like to have the necessary experience to become a",
+			"bold2": "Software Architect",
+			"part3": ", and thus be able to make key decisions in the design of complex systems, ensuring their robustness, scalability, security, and efficiency."
+		}
+	},
+	"footer": {
+		"contact": "Contact"
+	}
+}
