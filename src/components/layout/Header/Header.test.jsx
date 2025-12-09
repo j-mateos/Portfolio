@@ -24,6 +24,37 @@ const simulateModeChange = (newMode) => {
     mockSelectedMode = newMode
 }
 
+vi.mock('react-i18next', () => ({
+    useTranslation: () => ({
+        t: (key) => {
+            switch (key) {
+            // Navegación
+            case 'header.navPresentation':
+                return 'Presentación'
+            case 'header.navExperience':
+                return 'Experiencia'
+            case 'header.navTechnologies':
+                return 'Tecnologías'
+            case 'header.navAboutMe':
+                return 'Sobre mí'
+                // Modos
+            case 'header.modeSystem':
+                return 'Sistema'
+            case 'header.modeLight':
+                return 'Claro'
+            case 'header.modeDark':
+                return 'Oscuro'
+            default:
+                return key
+            }
+        },
+        i18n: {
+            language: 'es',
+            changeLanguage: vi.fn()
+        }
+    })
+}))
+
 describe('Header', () => {
     beforeEach(() => {
         mockSelectedMode = 'system'
@@ -53,7 +84,7 @@ describe('Header', () => {
         expect(screen.getByText('Claro')).toBeInTheDocument()
         expect(screen.getByText('Oscuro')).toBeInTheDocument()
 
-        fireEvent.mouseDown(document)
+        fireEvent.mouseDown(document.body)
         expect(screen.queryByText('Sistema')).not.toBeInTheDocument()
     })
 
