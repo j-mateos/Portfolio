@@ -12,8 +12,11 @@
     "preview": "npm run build && vite preview --config ./config/vite.config.js"
   },
   "dependencies": {
+    "i18next": "25.7.2",
+    "i18next-http-backend": "3.0.2",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-i18next": "16.4.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "6.9.1",
