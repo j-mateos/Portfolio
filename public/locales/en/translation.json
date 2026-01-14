@@ -23,7 +23,8 @@
 			"bold2": "cybersecurity",
 			"part3": "."
 		},
-		"emailBtn": "Email"
+		"emailBtn": "Email",
+		"emailBackgroundText": "Copied"
 	},
 	"experience": {
 		"title": "Experience",

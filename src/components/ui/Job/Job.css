@@ -2,13 +2,13 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	border-left: 1px solid var(--text);
+	border-left: 1px solid var(--text-color);
 	padding-left: 2rem;
 
 	&>span {
 		margin-bottom: .5rem;
 		font-weight: 350;
-		color: var(--job-date);
+		color: var(--job-date-color);
 	}
 
 	&>ul {
@@ -25,7 +25,7 @@
 	width: 15px;
 	height: 15px;
 	border-radius: 50%;
-	box-shadow: 0 0 0 6px var(--border);
+	box-shadow: 0 0 0 6px var(--border-color);
 	background-color: white;
 }
 
@@ -41,12 +41,12 @@
 	}
 
 	&>h3 {
-		color: var(--bold);
+		color: var(--bold-color);
 		font-weight: 500;
 	}
 
 	&:nth-child(2) {
-		color: var(--job-company);
+		color: var(--job-company-color);
 		font-weight: 500;
 	}
 }
