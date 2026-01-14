@@ -39,6 +39,7 @@ export function Content () {
                     <div className='content-buttons'>
                         <AnimatedButton
                             text={t('presentation.emailBtn')}
+                            backgroundText={t('presentation.emailBackgroundText')}
                             copyToClipboard='correojumape@gmail.com'
                             svgName='email'
                             svgSize={17} />

@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { Svg } from '../Svg/Svg'
 /* eslint-enable no-unused-vars */
 
-export function AnimatedButton ({ text, copyToClipboard, svgName, svgSize = 15 }) {
+export function AnimatedButton ({ text, backgroundText, copyToClipboard, svgName, svgSize = 15 }) {
     const [copied, setCopied] = useState(false)
 
     const handleClick = (e) => {
@@ -26,7 +26,7 @@ export function AnimatedButton ({ text, copyToClipboard, svgName, svgSize = 15 }
                 ? (
                     <>
                         <Svg name='check' size={20} />
-                        <span>Copiado</span>
+                        <span>{backgroundText}</span>
                     </>
                 )
                 : (
