@@ -1,5 +1,4 @@
 # Files
-package-lock.json
 *.log
 .env
 process.md
