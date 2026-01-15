@@ -40,16 +40,16 @@ export function Content () {
                         <AnimatedButton
                             text={t('presentation.emailBtn')}
                             backgroundText={t('presentation.emailBackgroundText')}
-                            copyToClipboard='correojumape@gmail.com'
+                            copyToClipboard='jm.matperez@gmail.com'
                             svgName='email'
                             svgSize={17} />
                         <LinkButton
                             text='LinkedIn'
-                            url='https://www.linkedin.com/in/juan-manuel-m-971493268/'
+                            url='https://www.linkedin.com/in/jmateosperez/'
                             svgName='linkedIn' />
                         <LinkButton
                             text='GitHub'
-                            url='https://github.com/Trajano1999'
+                            url='https://github.com/j-mateos'
                             svgName='gitHub' />
                     </div>
                 </div>

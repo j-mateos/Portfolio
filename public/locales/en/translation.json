@@ -13,7 +13,7 @@
 		"greeting": "Hello, I'm Juanma",
 		"p1": {
 			"part1": "I am a",
-			"bold1": "Computer Science and Mathematics Engineer",
+			"bold1": "Computer Engineer and Mathematician",
 			"part2": "from the University of Granada."
 		},
 		"p2": {
@@ -61,7 +61,7 @@
 		},
 		"p2": {
 			"part1": "My",
-			"bold1": "technological stack",
+			"bold1": "technology stack",
 			"part2": "is the following:"
 		},
 		"frontend": "Frontend",
