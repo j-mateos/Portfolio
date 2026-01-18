@@ -33,15 +33,20 @@ This is my personal web portfolio, showcasing my skills, professional experience
 ## How to install
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/j-mateos/Portfolio
-   cd Portfolio
-   ```
+	```bash
+	git clone https://github.com/j-mateos/Portfolio
+	cd Portfolio
+	```
 
 2. Install dependencies:
-   ```bash
-   npm install
-   ```
+	```bash
+	npm install
+	```
+
+3. Check dependencies:
+	```bash
+	npx depcheck
+	```
 
 ## How to run
 
