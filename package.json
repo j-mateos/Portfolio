@@ -8,8 +8,8 @@
     "lint": "eslint . --config config/.eslintrc.cjs --ext .js,.jsx,.cjs --fix",
     "test": "vitest --config ./config/vite.config.js",
     "build": "vite build --config ./config/vite.config.js",
-    "clean": "rimraf dist",
-    "preview": "npm run build && vite preview --config ./config/vite.config.js"
+    "preview": "npm run build && vite preview --config ./config/vite.config.js",
+    "clean": "rimraf dist"
   },
   "dependencies": {
     "i18next": "25.7.2",
