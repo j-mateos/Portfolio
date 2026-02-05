@@ -1,0 +1,29 @@
+.linkButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+
+    border: none;
+    text-decoration: none;
+    outline: var(--border-color) 1px solid;
+    border-radius: 50px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-weight: 500;
+
+    & > svg > path {
+        fill: var(--text-color);
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--text-color);
+        color: var(--background-color);
+
+        & > svg > path {
+            fill: var(--background-color);
+        }
+    }
+}

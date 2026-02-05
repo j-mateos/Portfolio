@@ -1,0 +1,96 @@
+.header {
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    margin-top: 10px;
+    z-index: 2;
+}
+
+.nav {
+    position: relative;
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+
+    outline: var(--transparent-color) 1px solid;
+    animation: solidMenu 1s both;
+    animation-timeline: scroll(root);
+    animation-range: 0 1px;
+
+    & > a,
+    & > div > div {
+        white-space: nowrap;
+        padding: 0.5rem;
+        color: var(--text-color);
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    & > a:hover {
+        cursor: pointer;
+        color: var(--bold-color);
+    }
+
+    & > div {
+        display: flex;
+        position: relative;
+    }
+}
+
+.currentState {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    & > svg,
+    & > img {
+        & > path {
+            fill: var(--text-color);
+        }
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+.states {
+    position: absolute;
+    top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100px;
+    font-size: var(--small-font-size);
+
+    background-color: var(--background-color);
+    outline: var(--border-color) 1px solid;
+    border-radius: 5px;
+
+    & > span {
+        padding: 0.25rem 0.5rem;
+
+        &:hover {
+            cursor: pointer;
+            color: var(--bold-color);
+        }
+    }
+}
+
+@keyframes solidMenu {
+    to {
+        border-radius: 50px;
+        outline: var(--border-color) 1px solid;
+        background-color: var(--background-color);
+    }
+}
+
+@media (max-width: 799px) {
+    .states {
+        right: 0px;
+    }
+}
