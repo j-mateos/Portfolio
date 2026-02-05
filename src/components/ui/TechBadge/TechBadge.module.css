@@ -1,0 +1,11 @@
+.techBadge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+
+    & > p {
+        white-space: nowrap;
+    }
+}

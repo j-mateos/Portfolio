@@ -1,11 +1,11 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import {createContext, useContext, useEffect, useState} from 'react'
 
 const getSystemMode = () =>
     window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches
         ? 'light'
         : 'dark'
 
-const ThemeContext = createContext(['dark', () => { }, 'dark'])
+const ThemeContext = createContext(['dark', () => {}, 'dark'])
 
 const useSystemModeListener = (setMode) => {
     useEffect(() => {
@@ -22,7 +22,7 @@ const useSystemModeListener = (setMode) => {
     }, [setMode])
 }
 
-export function ThemeProvider ({ children }) {
+export function ThemeProvider({children}) {
     const [selectedMode, setSelectedMode] = useState(() => {
         const saved = localStorage.getItem('theme-mode')
         if (saved === 'light' || saved === 'dark' || saved === 'system') return saved
@@ -49,6 +49,6 @@ export function ThemeProvider ({ children }) {
     )
 }
 
-export function useTheme () {
+export function useTheme() {
     return useContext(ThemeContext)
 }

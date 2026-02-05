@@ -1,0 +1,52 @@
+.jobRole {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--text-color);
+    padding-left: 2rem;
+
+    & > span {
+        margin-bottom: 0.5rem;
+        font-weight: 350;
+        color: var(--job-date-color);
+    }
+
+    & > ul {
+        margin-bottom: 0.5rem;
+        list-style-type: none;
+    }
+}
+
+.circle {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px var(--border-color);
+    background-color: white;
+}
+
+.title {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    gap: 0.8rem;
+    margin-bottom: 0.5rem;
+
+    & * {
+        flex-shrink: 0;
+    }
+
+    & > h3 {
+        color: var(--bold-color);
+        font-weight: 500;
+    }
+
+    &:nth-child(2) {
+        color: var(--job-company-color);
+        font-weight: 500;
+    }
+}

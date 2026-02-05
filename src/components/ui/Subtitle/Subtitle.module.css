@@ -1,0 +1,14 @@
+.subtitle {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+
+    & > svg > path {
+        fill: var(--text-color);
+    }
+
+    & > h2 {
+        font-size: var(--large-font-size);
+    }
+}

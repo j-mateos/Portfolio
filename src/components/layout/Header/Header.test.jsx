@@ -1,23 +1,20 @@
-import { render, screen, fireEvent } from '@testing-library/react'
-import { vi } from 'vitest'
+import {render, screen, fireEvent} from '@testing-library/react'
+import {vi} from 'vitest'
+import {Header} from './Header'
 
-/* eslint-disable no-unused-vars */
-import { Header } from './Header'
-/* eslint-enable no-unused-vars */
-
-vi.mock('../../ui/Svg/Svg', () => ({
-    Svg: ({ name }) => <div data-testid='svg'>{name}</div>
+vi.mock('../../ui/SvgIcon/SvgIcon', () => ({
+    SvgIcon: ({name}) => <div data-testid="svg">{name}</div>,
 }))
 
 const mockSetMode = vi.fn()
 let mockSelectedMode = 'system'
 
-vi.mock('../App/ThemeContext.jsx', () => ({
+vi.mock('@/context/ThemeContext', () => ({
     useTheme: () => [
         mockSelectedMode === 'system' ? 'dark' : mockSelectedMode,
         mockSetMode,
-        mockSelectedMode
-    ]
+        mockSelectedMode,
+    ],
 }))
 
 const simulateModeChange = (newMode) => {
@@ -28,31 +25,31 @@ vi.mock('react-i18next', () => ({
     useTranslation: () => ({
         t: (key) => {
             switch (key) {
-            // Navegación
-            case 'header.navPresentation':
-                return 'Presentación'
-            case 'header.navExperience':
-                return 'Experiencia'
-            case 'header.navTechnologies':
-                return 'Tecnologías'
-            case 'header.navAboutMe':
-                return 'Sobre mí'
-                // Modos
-            case 'header.modeSystem':
-                return 'Sistema'
-            case 'header.modeLight':
-                return 'Claro'
-            case 'header.modeDark':
-                return 'Oscuro'
-            default:
-                return key
+                // Navigation
+                case 'header.navPresentation':
+                    return 'Presentación'
+                case 'header.navExperience':
+                    return 'Experiencia'
+                case 'header.navTechnologies':
+                    return 'Tecnologías'
+                case 'header.navAboutMe':
+                    return 'Sobre mí'
+                // Modes
+                case 'header.modeSystem':
+                    return 'Sistema'
+                case 'header.modeLight':
+                    return 'Claro'
+                case 'header.modeDark':
+                    return 'Oscuro'
+                default:
+                    return key
             }
         },
         i18n: {
             language: 'es',
-            changeLanguage: vi.fn()
-        }
-    })
+            changeLanguage: vi.fn(),
+        },
+    }),
 }))
 
 describe('Header', () => {
@@ -89,7 +86,7 @@ describe('Header', () => {
     })
 
     test('Changes mode when selecting the "Light" option', () => {
-        const { rerender } = render(<Header />)
+        const {rerender} = render(<Header />)
 
         const svgLogo = screen.getByTestId('svg')
         fireEvent.click(svgLogo)
@@ -107,7 +104,7 @@ describe('Header', () => {
     })
 
     test('Changes mode when selecting the "System" option', () => {
-        const { rerender } = render(<Header />)
+        const {rerender} = render(<Header />)
 
         const svgLogo = screen.getByTestId('svg')
         fireEvent.click(svgLogo)
