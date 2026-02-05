@@ -50,7 +50,7 @@ This is my personal web portfolio, showcasing my skills, professional experience
 3. Check vulnerabilites:
 
     ```bash
-    bun install
+    bun audit
     ```
 
 4. Check dependencies:
