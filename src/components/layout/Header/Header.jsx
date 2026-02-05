@@ -1,35 +1,32 @@
-import './Header.css'
-import { useState, useEffect, useRef } from 'react'
-import { useTheme } from '../App/ThemeContext.jsx'
-import { useTranslation } from 'react-i18next'
+import styles from './Header.module.css'
+import {useState, useEffect, useRef} from 'react'
+import {useTheme} from '@/context/ThemeContext'
+import {useTranslation} from 'react-i18next'
+import {SvgIcon} from '@/components/ui/SvgIcon/SvgIcon'
 
-/* eslint-disable no-unused-vars */
-import { Svg } from '../../ui/Svg/Svg'
-/* eslint-enable no-unused-vars */
-
-const flagSvgs = import.meta.glob('../../../assets/svg/flag_*.svg', {
+const flagSvgs = import.meta.glob('@/assets/icons/flag_*.svg', {
     eager: true,
-    import: 'default'
+    import: 'default',
 })
 
 // Obtains the flag URL based on the language key
 const getFlagSrc = (languageKey) => {
     const fileName = `flag_${languageKey}.svg`
-    const key = Object.keys(flagSvgs).find(k => k.endsWith(fileName))
+    const key = Object.keys(flagSvgs).find((k) => k.endsWith(fileName))
     return flagSvgs[key]
 }
 
-export function Header () {
-    const { t, i18n } = useTranslation()
+export function Header() {
+    const {t, i18n} = useTranslation()
 
     // Variables and state for theme modes
     const [, setMode, selectedMode] = useTheme()
     const [showModes, setShowModes] = useState(false)
     const modesRef = useRef(null)
     const modes = [
-        { key: 'system', label: t('header.modeSystem') },
-        { key: 'light', label: t('header.modeLight') },
-        { key: 'dark', label: t('header.modeDark') }
+        {key: 'system', label: t('header.modeSystem')},
+        {key: 'light', label: t('header.modeLight')},
+        {key: 'dark', label: t('header.modeDark')},
     ]
 
     // Variables and state for language selection
@@ -37,8 +34,8 @@ export function Header () {
     const [showLanguages, setShowLanguages] = useState(false)
     const languagesRef = useRef(null)
     const languages = [
-        { key: 'es', label: 'Español' },
-        { key: 'en', label: 'English' }
+        {key: 'es', label: 'Español'},
+        {key: 'en', label: 'English'},
     ]
 
     // Methods to handle mode selection
@@ -78,20 +75,20 @@ export function Header () {
     }, [])
 
     return (
-        <header className='header'>
-            <nav className='header-nav'>
-                <a href='#presentation' className='nav-link'>{t('header.navPresentation')}</a>
-                <a href='#experience' className='nav-link'>{t('header.navExperience')}</a>
-                <a href='#technologies' className='nav-link'>{t('header.navTechnologies')}</a>
-                <a href='#about-me' className='nav-link'>{t('header.navAboutMe')}</a>
+        <header className={styles.header}>
+            <nav className={styles.nav}>
+                <a href="#presentation">{t('header.navPresentation')}</a>
+                <a href="#experience">{t('header.navExperience')}</a>
+                <a href="#technologies">{t('header.navTechnologies')}</a>
+                <a href="#about-me">{t('header.navAboutMe')}</a>
 
                 {/* Mode selector */}
                 <div ref={modesRef}>
-                    <div className='header-current-state' onClick={handleCurrentModeClick}>
-                        <Svg name={selectedMode + 'Mode'} />
+                    <div className={styles['currentState']} onClick={handleCurrentModeClick}>
+                        <SvgIcon name={selectedMode + 'Mode'} />
                     </div>
                     {showModes && (
-                        <div className='header-states'>
+                        <div className={styles.states}>
                             {modes.map((m) => (
                                 <span key={m.key} onClick={() => handleModeSelect(m.key)}>
                                     {m.label}
@@ -103,15 +100,16 @@ export function Header () {
 
                 {/* Language selector */}
                 <div ref={languagesRef}>
-                    <div className='header-current-state' onClick={handleCurrentLanguageClick}>
+                    <div className={styles['currentState']} onClick={handleCurrentLanguageClick}>
                         <img
                             src={getFlagSrc(currentLanguage)}
                             alt={`Bandera de ${currentLanguage}`}
-                            width={25} height={25}
+                            width={25}
+                            height={25}
                         />
                     </div>
                     {showLanguages && (
-                        <div className='header-states'>
+                        <div className={styles.states}>
                             {languages.map((l) => (
                                 <span key={l.key} onClick={() => handleLanguageSelect(l.key)}>
                                     {l.label}

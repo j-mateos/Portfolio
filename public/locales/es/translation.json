@@ -1,96 +1,96 @@
 {
-	"header": {
-		"navPresentation": "Presentación",
-		"navExperience": "Experiencia",
-		"navTechnologies": "Tecnologías",
-		"navAboutMe": "Sobre mí",
-		"modeSystem": "Sistema",
-		"modeLight": "Claro",
-		"modeDark": "Oscuro"
-	},
-	"presentation": {
-		"photoAlt": "Imagen personal",
-		"greeting": "Hola, soy Juanma",
-		"p1": {
-			"part1": "Soy",
-			"bold1": "Ingeniero Informático y Matemático",
-			"part2": "por la Universidad de Granada."
-		},
-		"p2": {
-			"part1": "Actualmente centro mi actividad profesional en el",
-			"bold1": "desarrollo de software",
-			"part2": "y la",
-			"bold2": "ciberseguridad",
-			"part3": "."
-		},
-		"emailBtn": "Correo",
-		"emailBackgroundText": "Copiado"
-	},
-	"experience": {
-		"title": "Experiencia",
-		"job1": {
-			"title": "DevSecOps",
-			"company": "TecData Engineering",
-			"startDate": "Mayo 2025",
-			"endDate": "Actualidad",
-			"desc1": "Desarrollo fullstack de una aplicación ASPM para la gestión de vulnerabilidades de seguridad."
-		},
-		"job2": {
-			"title": "Consultor de ciberseguridad",
-			"company": "Deloitte",
-			"startDate": "Julio 2024",
-			"endDate": "Mayo 2025",
-			"desc1": "Automatización de procesos de escaneos de seguridad de aplicaciones en el SDLC.",
-			"desc2": "Experiencia en el modelo DevSecOps y la integración de pipelines CI/CD."
-		},
-		"job3": {
-			"title": "Desarrollador de software",
-			"company": "Servicios Integrales de Congresos",
-			"startDate": "Enero 2024",
-			"endDate": "Junio 2024",
-			"desc1": "Desarrollo y diseño de aplicaciones, una móvil y otra de escritorio.",
-			"desc2": "Gestión de una API REST común para distintas páginas web."
-		}
-	},
-	"technologies": {
-		"title": "Tecnologías",
-		"p1": {
-			"part1": "Durante mi carrera profesional, he desarrollado",
-			"bold1": "habilidades y experiencia",
-			"part2": "en gran variedad de lenguajes y herramientas."
-		},
-		"p2": {
-			"part1": "Mi",
-			"bold1": "stack tecnológico",
-			"part2": "es el siguiente:"
-		},
-		"frontend": "Frontend",
-		"backend": "Backend",
-		"tools": "Herramientas",
-		"learning": "Aprendiendo"
-	},
-	"aboutMe": {
-		"title": "Sobre mí",
-		"p1": {
-			"part1": "Aunque mi nombre es Juan Manuel, todo el mundo me conoce como",
-			"bold1": "Juanma",
-			"part2": ". Terminé el doble grado hace unos años y desde entonces he centrado mi recorrido profesional tanto en el",
-			"bold2": "desarrollo de software",
-			"part3": ", como en la",
-			"bold3": "ciberseguridad",
-			"part4": ", disciplinas que requieren",
-			"bold4": "aprendizaje continuo",
-			"part5": "y un dominio sólido de herramientas y conceptos técnicos para poder crear soluciones eficientes, escalables y seguras."
-		},
-		"p2": {
-			"part1": "Mi objetivo es seguir",
-			"bold1": "desarrollándome como profesional",
-			"part2": ", asumir nuevos retos y participar en iniciativas que impulsen la innovación en el ámbito del software. Dentro de algunos años me gustaría contar con la experiencia necesaria para ser",
-			"bold2": "arquitecto de software",
-			"part3": ", y así poder tomar decisiones clave en el diseño de sistemas complejos, asegurando su robustez, escalabilidad, seguridad y eficiencia."
-		}
-	},
-	"footer": {
-		"contact": "Contacto"
-	}
+    "header": {
+        "navPresentation": "Presentación",
+        "navExperience": "Experiencia",
+        "navTechnologies": "Tecnologías",
+        "navAboutMe": "Sobre mí",
+        "modeSystem": "Sistema",
+        "modeLight": "Claro",
+        "modeDark": "Oscuro"
+    },
+    "presentation": {
+        "photoAlt": "Imagen personal",
+        "greeting": "Hola, soy Juanma",
+        "p1": {
+            "part1": "Soy",
+            "bold1": "Ingeniero Informático y Matemático",
+            "part2": "por la Universidad de Granada."
+        },
+        "p2": {
+            "part1": "Actualmente centro mi actividad profesional en el",
+            "bold1": "desarrollo de software",
+            "part2": "y la",
+            "bold2": "ciberseguridad",
+            "part3": "."
+        },
+        "emailBtn": "Correo",
+        "emailBackgroundText": "Copiado"
+    },
+    "experience": {
+        "title": "Experiencia",
+        "job1": {
+            "title": "DevSecOps",
+            "company": "TecData Engineering",
+            "startDate": "Mayo 2025",
+            "endDate": "Actualidad",
+            "desc1": "Desarrollo fullstack de una aplicación ASPM para la gestión de vulnerabilidades de seguridad."
+        },
+        "job2": {
+            "title": "Consultor de ciberseguridad",
+            "company": "Deloitte",
+            "startDate": "Julio 2024",
+            "endDate": "Mayo 2025",
+            "desc1": "Automatización de procesos de escaneos de seguridad de aplicaciones en el SDLC.",
+            "desc2": "Experiencia en el modelo DevSecOps y la integración de pipelines CI/CD."
+        },
+        "job3": {
+            "title": "Desarrollador de software",
+            "company": "Servicios Integrales de Congresos",
+            "startDate": "Enero 2024",
+            "endDate": "Junio 2024",
+            "desc1": "Desarrollo y diseño de aplicaciones, una móvil y otra de escritorio.",
+            "desc2": "Gestión de una API REST común para distintas páginas web."
+        }
+    },
+    "technologies": {
+        "title": "Tecnologías",
+        "p1": {
+            "part1": "Durante mi carrera profesional, he desarrollado",
+            "bold1": "habilidades y experiencia",
+            "part2": "en gran variedad de lenguajes y herramientas."
+        },
+        "p2": {
+            "part1": "Mi",
+            "bold1": "stack tecnológico",
+            "part2": "es el siguiente:"
+        },
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "tools": "Herramientas",
+        "learning": "Aprendiendo"
+    },
+    "aboutMe": {
+        "title": "Sobre mí",
+        "p1": {
+            "part1": "Aunque mi nombre es Juan Manuel, todo el mundo me conoce como",
+            "bold1": "Juanma",
+            "part2": ". Terminé el doble grado hace unos años y desde entonces he centrado mi recorrido profesional tanto en el",
+            "bold2": "desarrollo de software",
+            "part3": ", como en la",
+            "bold3": "ciberseguridad",
+            "part4": ", disciplinas que requieren",
+            "bold4": "aprendizaje continuo",
+            "part5": "y un dominio sólido de herramientas y conceptos técnicos para poder crear soluciones eficientes, escalables y seguras."
+        },
+        "p2": {
+            "part1": "Mi objetivo es seguir",
+            "bold1": "desarrollándome como profesional",
+            "part2": ", asumir nuevos retos y participar en iniciativas que impulsen la innovación en el ámbito del software. Dentro de algunos años me gustaría contar con la experiencia necesaria para ser",
+            "bold2": "arquitecto de software",
+            "part3": ", y así poder tomar decisiones clave en el diseño de sistemas complejos, asegurando su robustez, escalabilidad, seguridad y eficiencia."
+        }
+    },
+    "footer": {
+        "contact": "Contacto"
+    }
 }

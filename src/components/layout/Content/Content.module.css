@@ -1,0 +1,151 @@
+.content {
+    max-width: 50%;
+    min-width: var(--min-width);
+    margin: 120px auto 0 auto;
+
+    & > section {
+        padding: 3rem;
+        scroll-margin-top: 50px;
+    }
+}
+
+.presentation {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 3rem;
+
+    & > div {
+        & > .image {
+            max-width: 240px;
+            border-radius: 50%;
+        }
+
+        & > h1 {
+            margin-bottom: 1.5rem;
+            font-size: var(--xlarge-font-size);
+            white-space: nowrap;
+        }
+
+        & > p {
+            margin-bottom: 2rem;
+            width: 374px;
+
+            & > strong {
+                color: var(--bold-color);
+                font-weight: 500;
+            }
+        }
+
+        & > .contentButtons {
+            display: flex;
+            gap: 1rem;
+        }
+    }
+}
+
+.experience > ol {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-left: 0.8rem;
+}
+
+.technologies {
+    & > p {
+        margin-bottom: 2.5rem;
+
+        & > strong {
+            color: var(--bold-color);
+            font-weight: 500;
+        }
+    }
+
+    & > :last-child {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+
+        & > article {
+            padding: 2rem;
+            background-color: var(--technology-background-color);
+            outline: var(--border-color) 1px solid;
+            border-radius: 1rem;
+
+            & > h3 {
+                text-align: center;
+                margin-bottom: 2.5rem;
+                font-size: var(--large-font-size);
+            }
+
+            & > aside {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+    }
+}
+
+.aboutMe > div > p {
+    &:nth-child(1) {
+        margin-bottom: 1.5rem;
+    }
+
+    & > strong {
+        color: var(--bold-color);
+        font-weight: 400;
+    }
+}
+
+@media (max-width: 799px) {
+    .content > section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .presentation > div:nth-child(2) {
+        text-align: center;
+    }
+
+    .experience > ol > li > div:nth-child(2) {
+        display: block;
+
+        & > h3 {
+            margin-bottom: 0.8rem;
+        }
+
+        & :nth-child(2) {
+            display: none;
+        }
+    }
+
+    .technologies {
+        & > p {
+            text-align: center;
+        }
+
+        & > :last-child {
+            width: 80%;
+
+            & > article > aside {
+                gap: 1rem;
+            }
+        }
+    }
+
+    .aboutMe {
+        text-align: center;
+    }
+}
+
+@media (max-width: 1279px) {
+    .presentation {
+        flex-wrap: wrap;
+    }
+
+    .technologies > :last-child {
+        grid-template-columns: 1fr;
+    }
+}

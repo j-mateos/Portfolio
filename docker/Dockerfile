@@ -1,8 +1,8 @@
-FROM node:latest
+FROM oven/bun:latest
 WORKDIR /app
 
-COPY ../package*.json ./
-RUN npm install
+COPY ../package.json bun.lock ./
+RUN bun install
 COPY .. .
 
-CMD ["npm", "run", "dev", "--", "--host"]
+CMD ["bun", "run", "dev", "--", "--host"]

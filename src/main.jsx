@@ -1,10 +1,8 @@
-import { createRoot } from 'react-dom/client'
-import '../config/i18n'
-
-/* eslint-disable no-unused-vars */
-import { StrictMode } from 'react'
-import { App } from './components/layout/App/App'
-/* eslint-enable no-unused-vars */
+import './main.css'
+import {createRoot} from 'react-dom/client'
+import {StrictMode} from 'react'
+import './i18n/i18n.js'
+import {App} from './App'
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
