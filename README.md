@@ -83,7 +83,3 @@ This is my personal web portfolio, showcasing my skills, professional experience
 - `bun run preview`: Previews the production build.
 - `bun run clean-build`: Removes the `dist` folder.
 - `bun run clean-bun`: Removes the `node_modules` and `bun-lockb` folders.
-
-```
-
-```
