@@ -35,12 +35,6 @@ jobs:
             - name: Build project
               run: bun run build
 
-            - name: Upload build artifact
-              uses: actions/upload-artifact@v4
-              with:
-                  name: dist-${{ github.sha }}
-                  path: dist/
-
     sast:
         runs-on: ubuntu-latest
         needs: build
@@ -72,21 +66,22 @@ jobs:
             - name: Run SAST scan
               uses: github/codeql-action/analyze@v4
 
-# dast:
-#     runs-on: ubuntu-latest
-#     needs: sast
-#     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
-#     steps:
-#         - name: Wait for Vercel Deployment
-#           uses: unly/vercel-action-get-deployment-url@v1
-#           id: fetch-deployment-url
-#           with:
-#               token: ${{ secrets.VERCEL_TOKEN }}
-#               project_id: ${{ secrets.VERCEL_PROJECT_ID }}
-#               preview: ${{ github.ref != 'refs/heads/main' }}
-#               wait_for_deployment: true
+    dast:
+        runs-on: ubuntu-latest
+        needs: sast
+        if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+        steps:
+            - name: Wait for Vercel Deployment
+              uses: unly/vercel-action-get-deployment-url@v1
+              id: fetch-deployment-url
+              with:
+                  token: ${{ secrets.VERCEL_TOKEN }}
+                  project_id: ${{ secrets.VERCEL_PROJECT_ID }}
+                  preview: ${{ github.ref != 'refs/heads/main' }}
+                  wait_for_deployment: true
 
-#         - name: Run DAST scan
-#           uses: zaproxy/action-baseline@v0.15.0
-#           with:
-#               target: 'https://portfolio-rose-mu-11.vercel.app'
+            - name: Run DAST scan
+              uses: zaproxy/action-baseline@v0.15.0
+              with:
+                  target: ${{ steps.fetch-deployment-url.outputs.deployment_url }}
+                  fail_action: true
