@@ -45,19 +45,6 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Setup Bun
-              uses: oven-sh/setup-bun@v2
-              with:
-                  bun-version: latest
-
-            - name: Install dependencies
-              run: bun install --frozen-lockfile
-
-            - name: Setup npm for CodeQL
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '20'
-
             - name: Initialize SAST scan
               uses: github/codeql-action/init@v4
               with:
@@ -71,17 +58,14 @@ jobs:
         needs: sast
         if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
         steps:
-            - name: Wait for Vercel Deployment
-              uses: unly/vercel-action-get-deployment-url@v1
-              id: fetch-deployment-url
+            - name: Get Deployment URL
+              uses: patrickedqvist/wait-for-vercel-preview@v1.3.2
+              id: vercel-deployment
               with:
-                  token: ${{ secrets.VERCEL_TOKEN }}
-                  project_id: ${{ secrets.VERCEL_PROJECT_ID }}
-                  preview: ${{ github.ref != 'refs/heads/main' }}
-                  wait_for_deployment: true
+                  token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Run DAST scan
               uses: zaproxy/action-baseline@v0.15.0
               with:
-                  target: ${{ steps.fetch-deployment-url.outputs.deployment_url }}
+                  target: ${{ steps.vercel-deployment.outputs.url }}
                   fail_action: true
