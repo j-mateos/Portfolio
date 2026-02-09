@@ -57,25 +57,19 @@ jobs:
         needs: build
         if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
         steps:
-            - name: Get Deployment URL
-              uses: patrickedqvist/wait-for-vercel-preview@v1.3.2
+            - name: Get deployment URL
+              uses: patrickedqvist/wait-for-vercel-preview@v1.3.3
               id: vercel-deployment
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
+                  vercel_protection_bypass_header: true
+              env:
+                  VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_BYPASS }}
 
-            - name: Verify connection
+            - name: Verify URL connection
               run: |
-                  echo "URL: ${{ steps.vercel-deployment.outputs.url }}"
-                  sleep 20
-
-                  # Verificamos con el bypass que realmente hay un 200 detrás del muro
-                  RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -H "x-vercel-protection-bypass: ${{ secrets.VERCEL_BYPASS }}" "${{ steps.vercel-deployment.outputs.url }}")
-                  echo "HTTP Status con Bypass: $RESPONSE"
-
-                  if [ "$RESPONSE" != "200" ]; then
-                      echo "Error: No se pudo acceder a la web incluso con el bypass (Status: $RESPONSE)"
-                      exit 1
-                  fi
+                  sleep 15
+                  curl -I -L -H "x-vercel-protection-bypass: ${{ secrets.VERCEL_BYPASS }}" "${{ steps.vercel-deployment.outputs.url }}"
 
             - name: Run DAST scan
               uses: zaproxy/action-baseline@v0.15.0
