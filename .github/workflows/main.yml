@@ -62,14 +62,11 @@ jobs:
               id: vercel-deployment
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  vercel_protection_bypass_header: true
+                  vercel_protection_bypass_header: x-vercel-protection-bypass
               env:
-                  VERCEL_AUTOMATION_BYPASS_SECRET: x-vercel-protection-bypass
+                  VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_BYPASS }}
 
-            - name: Debug preview URL
-              run: echo "Preview is at ${{ steps.vercel-deployment.outputs.url }}"
-
-            - name: Verify URL connection
+            - name: Verify deployment
               run: |
                   sleep 15
                   curl -I -L -H "x-vercel-protection-bypass: ${{ secrets.VERCEL_BYPASS }}" "${{ steps.vercel-deployment.outputs.url }}"
@@ -84,5 +81,4 @@ jobs:
                       -config replacer.full_list(0).enabled=true
                       -config replacer.full_list(0).matchtype=REQ_HEADER
                       -config replacer.full_list(0).matchstr=x-vercel-protection-bypass
-                      -config replacer.full_list(0).regex=false
                       -config replacer.full_list(0).replacement=${{ secrets.VERCEL_BYPASS }}
