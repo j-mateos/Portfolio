@@ -51,34 +51,85 @@ jobs:
 
             - name: Run SAST scan
               uses: github/codeql-action/analyze@v4
+              with:
+                  output: sarif-results
+                  upload: true
 
-    # dast:
-    #     runs-on: ubuntu-latest
-    #     needs: build
-    #     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
-    #     steps:
-    #         - name: Wait deployment URL
-    #           uses: patrickedqvist/wait-for-vercel-preview@v1.3.3
-    #           id: vercel-deployment
-    #           with:
-    #               token: ${{ secrets.GITHUB_TOKEN }}
-    #               vercel_protection_bypass_header: x-vercel-protection-bypass
-    #           env:
-    #               VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+            - name: Upload SAST report
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  path: '**/*.sarif'
+                  name: sast-report
 
-    #         - name: Verify deployment
-    #           run: |
-    #               sleep 15
-    #               curl -I -L -H "x-vercel-protection-bypass: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}" "${{ steps.vercel-deployment.outputs.url }}"
+    dast:
+        runs-on: ubuntu-latest
+        needs: build
+        permissions:
+            contents: write
+            issues: write
+        if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+        steps:
+            - name: Get preview URL
+              uses: patrickedqvist/wait-for-vercel-preview@v1.3.3
+              id: vercel-deployment
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  max_timeout: 5
+              continue-on-error: true
 
-    #         - name: Run DAST scan
-    #           uses: zaproxy/action-baseline@v0.15.0
-    #           with:
-    #               target: ${{ steps.vercel-deployment.outputs.url }}
-    #               fail_action: true
-    #               cmd_options: |
-    #                   -config replacer.full_list(0).description=auth
-    #                   -config replacer.full_list(0).enabled=true
-    #                   -config replacer.full_list(0).matchtype=REQ_HEADER
-    #                   -config replacer.full_list(0).matchstr=x-vercel-protection-bypass
-    #                   -config replacer.full_list(0).replacement=${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+            - name: Wait deployment
+              run: |
+                  URL="${{ steps.vercel-deployment.outputs.url }}"
+                  echo "Waiting for deployment at $URL"
+
+                  for i in {1..30}; do
+                    STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL")
+                    echo "Attempt $i → Status $STATUS"
+
+                    if [ "$STATUS" = "200" ] || [ "$STATUS" = "401" ]; then
+                      echo "✅ Deployment ready"
+                      exit 0
+                    fi
+
+                    sleep 5
+                  done
+
+                  echo "❌ Deployment not ready"
+                  exit 1
+
+            - name: Verify deployment
+              run: |
+                  URL="${{ steps.vercel-deployment.outputs.url }}"
+                  echo "Verifying deployment at $URL"
+
+                  STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+                    -H "x-vercel-protection-bypass: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}" \
+                    "$URL")
+
+                  echo "Status $STATUS"
+
+                  if [ "$STATUS" != "200" ]; then
+                    echo "❌ Deployment not accessible"
+                    exit 1
+                  fi
+
+                  echo "✅ Deployment accessible"
+
+            - name: Run DAST scan
+              uses: zaproxy/action-baseline@v0.15.0
+              with:
+                  target: ${{ steps.vercel-deployment.outputs.url }}
+                  fail_action: false
+                  allow_issue_writing: false
+                  cmd_options: '-a'
+              env:
+                  ZAP_AUTH_HEADER: x-vercel-protection-bypass
+                  ZAP_AUTH_HEADER_VALUE: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+
+            - name: Upload DAST report
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  path: report_html.html
+                  name: dast-report
