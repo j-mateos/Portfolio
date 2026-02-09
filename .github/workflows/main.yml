@@ -108,9 +108,6 @@ jobs:
               with:
                   target: ${{ steps.vercel-deployment.outputs.url }}
                   fail_action: true
-                  cmd_options: >
-                      -config globalexcludeurl.url_list.url(0).regex=.*/api/.*
-                      -config globalexcludeurl.url_list.url(1).regex=.*/_next/.*
-                      -config sessionManagement.method=cookie
-                      -config sessionManagement.cookie.name=__vercel_protection_bypass
-                      -config sessionManagement.cookie.value=${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+              env:
+                  ZAP_AUTH_HEADER: x-vercel-protection-bypass
+                  ZAP_AUTH_HEADER_VALUE: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
