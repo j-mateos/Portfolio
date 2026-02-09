@@ -75,6 +75,8 @@ This is my personal web portfolio, showcasing my skills, professional experience
     docker compose -f ./docker/compose.yml up
     ```
 
+    The server will start at `http://localhost:3000`.
+
 ### Available Scripts
 
 - `bun run dev`: Starts the development server.
