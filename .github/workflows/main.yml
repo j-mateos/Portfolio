@@ -35,15 +35,8 @@ jobs:
             - name: Build project
               run: bun run build
 
-            - name: Upload build artifact
-              uses: actions/upload-artifact@v4
-              with:
-                  name: dist-${{ github.sha }}
-                  path: dist/
-
     sast:
         runs-on: ubuntu-latest
-        needs: build
         permissions:
             contents: read
             security-events: write
@@ -51,42 +44,41 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Setup Bun
-              uses: oven-sh/setup-bun@v2
-              with:
-                  bun-version: latest
-
-            - name: Install dependencies
-              run: bun install --frozen-lockfile
-
-            - name: Setup npm for CodeQL
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '20'
-
             - name: Initialize SAST scan
               uses: github/codeql-action/init@v4
               with:
-                  languages: javascript
+                  languages: javascript-typescript
 
             - name: Run SAST scan
               uses: github/codeql-action/analyze@v4
 
-# dast:
-#     runs-on: ubuntu-latest
-#     needs: sast
-#     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
-#     steps:
-#         - name: Wait for Vercel Deployment
-#           uses: unly/vercel-action-get-deployment-url@v1
-#           id: fetch-deployment-url
-#           with:
-#               token: ${{ secrets.VERCEL_TOKEN }}
-#               project_id: ${{ secrets.VERCEL_PROJECT_ID }}
-#               preview: ${{ github.ref != 'refs/heads/main' }}
-#               wait_for_deployment: true
+    # dast:
+    #     runs-on: ubuntu-latest
+    #     needs: build
+    #     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    #     steps:
+    #         - name: Wait deployment URL
+    #           uses: patrickedqvist/wait-for-vercel-preview@v1.3.3
+    #           id: vercel-deployment
+    #           with:
+    #               token: ${{ secrets.GITHUB_TOKEN }}
+    #               vercel_protection_bypass_header: x-vercel-protection-bypass
+    #           env:
+    #               VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
 
-#         - name: Run DAST scan
-#           uses: zaproxy/action-baseline@v0.15.0
-#           with:
-#               target: 'https://portfolio-rose-mu-11.vercel.app'
+    #         - name: Verify deployment
+    #           run: |
+    #               sleep 15
+    #               curl -I -L -H "x-vercel-protection-bypass: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}" "${{ steps.vercel-deployment.outputs.url }}"
+
+    #         - name: Run DAST scan
+    #           uses: zaproxy/action-baseline@v0.15.0
+    #           with:
+    #               target: ${{ steps.vercel-deployment.outputs.url }}
+    #               fail_action: true
+    #               cmd_options: |
+    #                   -config replacer.full_list(0).description=auth
+    #                   -config replacer.full_list(0).enabled=true
+    #                   -config replacer.full_list(0).matchtype=REQ_HEADER
+    #                   -config replacer.full_list(0).matchstr=x-vercel-protection-bypass
+    #                   -config replacer.full_list(0).replacement=${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
