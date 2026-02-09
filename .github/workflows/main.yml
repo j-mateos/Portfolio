@@ -78,7 +78,7 @@ jobs:
                     echo "Attempt $i → status $STATUS"
 
                     if [ "$STATUS" = "200" ] || [ "$STATUS" = "401" ]; then
-                      echo "✅ Deployment ready (status $STATUS)"
+                      echo "✅ Deployment ready"
                       exit 0
                     fi
 
@@ -116,3 +116,10 @@ jobs:
               env:
                   ZAP_AUTH_HEADER: x-vercel-protection-bypass
                   ZAP_AUTH_HEADER_VALUE: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+
+            - name: Upload DAST reports
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: zap-report
+                  path: report_md.md
