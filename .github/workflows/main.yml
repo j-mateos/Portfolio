@@ -51,6 +51,22 @@ jobs:
 
             - name: Run SAST scan
               uses: github/codeql-action/analyze@v4
+              with:
+                  output: sarif-results
+                  upload: true
+
+            - name: Convert SARIF to HTML
+              if: always()
+              run: |
+                  npm install -g @microsoft/sarif-multitool
+                  sarif-multitool convert sarif-results/javascript-typescript.sarif --output-format html --output-file sast-report.html
+
+            - name: Upload SAST report
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                  path: sast-report.html
+                  name: sast-html-report
 
     dast:
         runs-on: ubuntu-latest
@@ -75,7 +91,7 @@ jobs:
 
                   for i in {1..30}; do
                     STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL")
-                    echo "Attempt $i → status $STATUS"
+                    echo "Attempt $i → Status $STATUS"
 
                     if [ "$STATUS" = "200" ] || [ "$STATUS" = "401" ]; then
                       echo "✅ Deployment ready"
@@ -97,7 +113,7 @@ jobs:
                     -H "x-vercel-protection-bypass: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}" \
                     "$URL")
 
-                  echo "Status with bypass: $STATUS"
+                  echo "Status $STATUS"
 
                   if [ "$STATUS" != "200" ]; then
                     echo "❌ Deployment not accessible"
@@ -117,9 +133,9 @@ jobs:
                   ZAP_AUTH_HEADER: x-vercel-protection-bypass
                   ZAP_AUTH_HEADER_VALUE: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
 
-            - name: Upload DAST reports
+            - name: Upload DAST report
               if: always()
               uses: actions/upload-artifact@v4
               with:
-                  name: zap-report
-                  path: report_md.md
+                  path: report_html.html
+                  name: dast-report
