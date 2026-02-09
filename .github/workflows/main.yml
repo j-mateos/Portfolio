@@ -37,7 +37,6 @@ jobs:
 
     sast:
         runs-on: ubuntu-latest
-        needs: build
         permissions:
             contents: read
             security-events: write
@@ -48,14 +47,14 @@ jobs:
             - name: Initialize SAST scan
               uses: github/codeql-action/init@v4
               with:
-                  languages: javascript
+                  languages: javascript-typescript
 
             - name: Run SAST scan
               uses: github/codeql-action/analyze@v4
 
     dast:
         runs-on: ubuntu-latest
-        needs: sast
+        needs: build
         if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
         steps:
             - name: Get Deployment URL
@@ -63,9 +62,16 @@ jobs:
               id: vercel-deployment
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
+                  max_timeout: 300
+
+            - name: Verify URL connection
+              run: |
+                  sleep 15
+                  curl -I -L -H "x-vercel-protection-bypass: ${{ secrets.VERCEL_BYPASS }}" ${{ steps.vercel-deployment.outputs.url }}
 
             - name: Run DAST scan
               uses: zaproxy/action-baseline@v0.15.0
               with:
                   target: ${{ steps.vercel-deployment.outputs.url }}
                   fail_action: true
+                  cmd_options: '-config replacer.full_list(0).description=auth -config replacer.full_list(0).enabled=true -config replacer.full_list(0).matchtype=REQ_HEADER -config replacer.full_list(0).matchstr=x-vercel-protection-bypass -config replacer.full_list(0).regex=false -config replacer.full_list(0).replacement=${{ secrets.VERCEL_BYPASS }}'
