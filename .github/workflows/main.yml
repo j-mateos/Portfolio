@@ -62,12 +62,20 @@ jobs:
               id: vercel-deployment
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  max_timeout: 300
 
             - name: Verify URL connection
               run: |
-                  sleep 15
-                  curl -I -L -H "x-vercel-protection-bypass: ${{ secrets.VERCEL_BYPASS }}" ${{ steps.vercel-deployment.outputs.url }}
+                  echo "URL: ${{ steps.vercel-deployment.outputs.url }}"
+                  sleep 20
+
+                  # Verificamos con el bypass que realmente hay un 200 detrás del muro
+                  RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -H "x-vercel-protection-bypass: ${{ secrets.VERCEL_BYPASS }}" "${{ steps.vercel-deployment.outputs.url }}")
+                  echo "HTTP Status con Bypass: $RESPONSE"
+
+                  if [ "$RESPONSE" != "200" ]; then
+                      echo "Error: No se pudo acceder a la web incluso con el bypass (Status: $RESPONSE)"
+                      exit 1
+                  fi
 
             - name: Run DAST scan
               uses: zaproxy/action-baseline@v0.15.0
