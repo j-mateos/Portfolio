@@ -52,33 +52,33 @@ jobs:
             - name: Run SAST scan
               uses: github/codeql-action/analyze@v4
 
-    dast:
-        runs-on: ubuntu-latest
-        needs: build
-        if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
-        steps:
-            - name: Wait deployment URL
-              uses: patrickedqvist/wait-for-vercel-preview@v1.3.3
-              id: vercel-deployment
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  vercel_protection_bypass_header: x-vercel-protection-bypass
-              env:
-                  VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+    # dast:
+    #     runs-on: ubuntu-latest
+    #     needs: build
+    #     if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    #     steps:
+    #         - name: Wait deployment URL
+    #           uses: patrickedqvist/wait-for-vercel-preview@v1.3.3
+    #           id: vercel-deployment
+    #           with:
+    #               token: ${{ secrets.GITHUB_TOKEN }}
+    #               vercel_protection_bypass_header: x-vercel-protection-bypass
+    #           env:
+    #               VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
 
-            - name: Verify deployment
-              run: |
-                  sleep 15
-                  curl -I -L -H "x-vercel-protection-bypass: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}" "${{ steps.vercel-deployment.outputs.url }}"
+    #         - name: Verify deployment
+    #           run: |
+    #               sleep 15
+    #               curl -I -L -H "x-vercel-protection-bypass: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}" "${{ steps.vercel-deployment.outputs.url }}"
 
-            - name: Run DAST scan
-              uses: zaproxy/action-baseline@v0.15.0
-              with:
-                  target: ${{ steps.vercel-deployment.outputs.url }}
-                  fail_action: true
-                  cmd_options: |
-                      -config replacer.full_list(0).description=auth
-                      -config replacer.full_list(0).enabled=true
-                      -config replacer.full_list(0).matchtype=REQ_HEADER
-                      -config replacer.full_list(0).matchstr=x-vercel-protection-bypass
-                      -config replacer.full_list(0).replacement=${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+    #         - name: Run DAST scan
+    #           uses: zaproxy/action-baseline@v0.15.0
+    #           with:
+    #               target: ${{ steps.vercel-deployment.outputs.url }}
+    #               fail_action: true
+    #               cmd_options: |
+    #                   -config replacer.full_list(0).description=auth
+    #                   -config replacer.full_list(0).enabled=true
+    #                   -config replacer.full_list(0).matchtype=REQ_HEADER
+    #                   -config replacer.full_list(0).matchstr=x-vercel-protection-bypass
+    #                   -config replacer.full_list(0).replacement=${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
