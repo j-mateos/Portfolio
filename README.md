@@ -27,10 +27,11 @@ This is my personal web portfolio, showcasing my skills, professional experience
 
 - **Node**: Runtime environment for development.
 - **Bun**: Dependency management.
-- **ESLint**: Code analysis and formatting.
+- **Prettier**: Code formatting.
+- **ESLint**: Code analysis.
 - **Vitest**: Testing framework with React integration.
 - **Docker**: Container management for development and deployment.
-- **GitHub Actions**: CI/CD pipelines for linting, testing, building, and static application security testing (SAST).
+- **GitHub Actions**: CI/CD pipelines for linting, testing, building, static security testing (SAST) and dynamic security testing (DAST).
 
 ## How to install
 
@@ -82,4 +83,4 @@ This is my personal web portfolio, showcasing my skills, professional experience
 - `bun run build`: Builds the project for production.
 - `bun run preview`: Previews the production build.
 - `bun run clean-build`: Removes the `dist` folder.
-- `bun run clean-bun`: Removes the `node_modules` and `bun-lockb` folders.
+- `bun run clean-bun`: Removes the `node_modules` and `bun.lock` folders.
