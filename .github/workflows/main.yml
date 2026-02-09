@@ -63,7 +63,7 @@ jobs:
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Verify URL connection
+            - name: Verify connection
               run: |
                   echo "URL: ${{ steps.vercel-deployment.outputs.url }}"
                   sleep 20
