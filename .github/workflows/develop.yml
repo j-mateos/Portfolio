@@ -1,10 +1,10 @@
-name: Development workflow
+name: Develop workflow
 
 on:
     push:
-        branches: [development]
+        branches: [develop]
     pull_request:
-        branches: [development]
+        branches: [develop]
         types: [opened, synchronize, reopened]
 
 concurrency:
