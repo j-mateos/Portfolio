@@ -4,13 +4,17 @@
     "version": "1.0.0",
     "type": "module",
     "scripts": {
-        "dev": "bunx vite .",
-        "lint": "bunx eslint . --ext .js,.jsx --fix",
-        "test": "bunx vitest .",
-        "build": "bunx vite build .",
-        "preview": "bun run build && bunx vite preview .",
-        "clean-build": "rimraf dist",
-        "clean-bun": "rimraf node_modules bun.lock"
+        "dev": "bun vite .",
+        "format": "bun prettier . --write --log-level warn",
+        "lint": "bun eslint . --ext .js,.jsx --fix",
+        "fix": "bun run format && bun run lint",
+        "test": "bun vitest .",
+        "build": "bun vite build .",
+        "preview": "bun run build && bun vite preview .",
+        "deps-check": "bunx knip",
+        "deps-audit": "bun audit",
+        "clean-build": "rm -rf dist",
+        "clean-deps": "rm -rf node_modules bun.lock"
     },
     "dependencies": {
         "@vercel/speed-insights": "1.3.1",

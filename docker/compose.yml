@@ -1,12 +1,12 @@
 services:
-    portfolio:
-        build:
-            context: .. # Specifies the root of the project.
-            dockerfile: docker/Dockerfile
-        ports:
-            - '3000:5173' # Map ports in the container to ports on the host machine.
-        volumes:
-            - ../src:/app/src # Reflects immediately any local code changes in the container without having to rebuild the image.
-            - /app/node_modules # Prevents local node_modules from overwriting those in the container, because modules installed inside the container may be different.
-        environment:
-            - CHOKIDAR_USEPOLLING=true # Checks periodically files for changes instead of using the native watch.
+  portfolio:
+    build:
+      context: .. # Specifies the root of the project.
+      dockerfile: docker/Dockerfile
+    ports:
+      - '3000:5173' # Map ports in the container to ports on the host machine.
+    volumes:
+      - ../src:/app/src # Reflects immediately any local code changes in the container without having to rebuild the image.
+      - /app/node_modules # Prevents local node_modules from overwriting those in the container, because modules installed inside the container may be different.
+    environment:
+      - CHOKIDAR_USEPOLLING=true # Checks periodically files for changes instead of using the native watch.
