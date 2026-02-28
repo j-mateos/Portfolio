@@ -25,8 +25,7 @@ This is my personal web portfolio, showcasing my skills, professional experience
 
 ### Development Tools
 
-- **Node**: Runtime environment for development.
-- **Bun**: Dependency management.
+- **Bun**: Runtime environment and dependency management.
 - **Prettier**: Code formatting.
 - **ESLint**: Code analysis.
 - **Vitest**: Testing framework with React integration.
@@ -46,17 +45,6 @@ This is my personal web portfolio, showcasing my skills, professional experience
 
     ```bash
     bun install
-    ```
-
-3. Check vulnerabilites:
-
-    ```bash
-    bun audit
-    ```
-
-4. Check dependencies:
-    ```bash
-    bunx depcheck
     ```
 
 ## How to run
@@ -80,9 +68,13 @@ This is my personal web portfolio, showcasing my skills, professional experience
 ### Available Scripts
 
 - `bun run dev`: Starts the development server.
-- `bun run lint`: Runs ESLint for linting and automatic fixes.
-- `bun run test`: Runs tests with Vitest.
+- `bun run format`: Formats all code with `Prettier`.
+- `bun run lint`: Checks and fixes code with `ESLint`.
+- `bun run fix`: Runs format and lint together.
+- `bun run test`: Runs tests with `Vitest`.
 - `bun run build`: Builds the project for production.
-- `bun run preview`: Previews the production build.
+- `bun run preview`: Builds and serves it locally for preview.
+- `bun run deps-check`: Detects unused or missing dependencies with `Knip`.
+- `bun run deps-audit`: Checks for vulnerabilities in dependencies.
 - `bun run clean-build`: Removes the `dist` folder.
-- `bun run clean-bun`: Removes the `node_modules` and `bun.lock` folders.
+- `bun run clean-deps`: Removes `node_modules` and `bun.lock`.
