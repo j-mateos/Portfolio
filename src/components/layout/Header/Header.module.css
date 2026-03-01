@@ -89,7 +89,7 @@
     }
 }
 
-@media (max-width: 799px) {
+@media (width <= 799px) {
     .states {
         right: 0px;
     }

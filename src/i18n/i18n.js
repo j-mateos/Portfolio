@@ -30,5 +30,3 @@ i18n.use(HttpBackend)
             escapeValue: false,
         },
     })
-
-export default i18n
