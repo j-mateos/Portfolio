@@ -12,6 +12,7 @@
 .presentation {
     display: flex;
     justify-items: center;
+    justify-content: center;
     align-items: center;
     gap: 3rem;
 
@@ -65,9 +66,11 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
+        width: 100%;
 
         & > article {
             padding: 2rem;
+            padding-bottom: 4rem;
             background-color: var(--technology-background-color);
             outline: var(--border-color) 1px solid;
             border-radius: 1rem;
@@ -98,7 +101,7 @@
     }
 }
 
-@media (max-width: 799px) {
+@media (width <= 799px) {
     .content > section {
         display: flex;
         flex-direction: column;
@@ -127,11 +130,7 @@
         }
 
         & > :last-child {
-            width: 80%;
-
-            & > article > aside {
-                gap: 1rem;
-            }
+            grid-template-columns: 1fr;
         }
     }
 
@@ -140,12 +139,32 @@
     }
 }
 
-@media (max-width: 1279px) {
+@media (800px <= width <= 1279px) {
     .presentation {
         flex-wrap: wrap;
     }
 
     .technologies > :last-child {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (width >= 1920px) {
+    .content > section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content > .presentation {
+        flex-direction: row;
+    }
+
+    .technologies > p {
+        text-align: center;
+    }
+
+    .aboutMe {
+        text-align: center;
     }
 }
