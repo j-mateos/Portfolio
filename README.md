@@ -76,5 +76,6 @@ This is my personal web portfolio, showcasing my skills, professional experience
 - `bun run preview`: Builds and serves it locally for preview.
 - `bun run deps-check`: Detects unused or missing dependencies with `Knip`.
 - `bun run deps-audit`: Checks for vulnerabilities in dependencies.
+- `bun run deps-update`: Updates dependencies.
 - `bun run clean-build`: Removes the `dist` folder.
 - `bun run clean-deps`: Removes `node_modules` and `bun.lock`.
