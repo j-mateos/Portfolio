@@ -13,19 +13,19 @@
         "preview": "bun run build && bun vite preview .",
         "deps-check": "bunx knip",
         "deps-audit": "bun audit",
-        "deps-update": "bun update --latest",
+        "deps-update": "bun update --latest && bun install",
         "clean-build": "rm -rf dist",
         "clean-deps": "rm -rf node_modules bun.lock"
     },
     "dependencies": {
         "@eslint/js": "10.0.1",
         "@vercel/speed-insights": "1.3.1",
-        "i18next": "25.8.13",
+        "i18next": "25.8.14",
         "i18next-http-backend": "3.0.2",
         "prettier": "3.8.1",
         "react": "19.2.4",
         "react-dom": "19.2.4",
-        "react-i18next": "16.5.4"
+        "react-i18next": "16.5.5"
     },
     "devDependencies": {
         "@eslint/compat": "2.0.2",
@@ -41,7 +41,7 @@
         "eslint-plugin-prettier": "5.5.5",
         "eslint-plugin-react": "7.37.5",
         "eslint-plugin-react-hooks": "7.0.1",
-        "globals": "17.3.0",
+        "globals": "17.4.0",
         "jsdom": "28.1.0",
         "vite": "7.3.1",
         "vitest": "4.0.18"
