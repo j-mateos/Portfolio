@@ -1,0 +1,6 @@
+[install]
+# Value in seconds
+minimumReleaseAge = 86400
+
+# Packages excluded by the filter
+minimumReleaseAgeExcludes = []
