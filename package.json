@@ -6,8 +6,11 @@
     "scripts": {
         "dev": "bun vite .",
         "format": "bun prettier . --write --log-level warn",
+        "format-check": "bun prettier . --check --log-level warn",
         "lint": "bun eslint . --fix",
+        "lint-check": "bun eslint .",
         "fix": "bun run format && bun run lint",
+        "fix-check": "bun run format-check && bun run lint-check",
         "test": "bun vitest .",
         "build": "bun vite build .",
         "preview": "bun run build && bun vite preview .",
