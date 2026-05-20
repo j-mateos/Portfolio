@@ -64,18 +64,3 @@ This is my personal web portfolio, showcasing my skills, professional experience
     ```
 
     The server will start at `http://localhost:3000`.
-
-### Available Scripts
-
-- `bun run dev`: Starts the development server.
-- `bun run format`: Formats all code with `Prettier`.
-- `bun run lint`: Checks and fixes code with `ESLint`.
-- `bun run fix`: Runs format and lint together.
-- `bun run test`: Runs tests with `Vitest`.
-- `bun run build`: Builds the project for production.
-- `bun run preview`: Builds and serves it locally for preview.
-- `bun run deps-check`: Detects unused or missing dependencies with `Knip`.
-- `bun run deps-audit`: Checks for vulnerabilities in dependencies.
-- `bun run deps-update`: Updates dependencies.
-- `bun run clean-build`: Removes the `dist` folder.
-- `bun run clean-deps`: Removes `node_modules` and `bun.lock`.
