@@ -14,7 +14,7 @@ This is my personal web portfolio, showcasing my skills, professional experience
 - **Multilingual support**: Content available in Spanish and English.
 - **Optimized performance**: Built with Vite for fast and efficient builds.
 
-## Technologies Used
+## Technologies used
 
 ### Frontend
 
@@ -23,7 +23,7 @@ This is my personal web portfolio, showcasing my skills, professional experience
 - **CSS variables**: Used for dynamic theme management.
 - **React i18next**: Implementation of multiple languages.
 
-### Development Tools
+### Development tools
 
 - **Bun**: Runtime environment and dependency management.
 - **Prettier**: Code formatting.
