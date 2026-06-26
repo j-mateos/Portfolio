@@ -1,7 +1,7 @@
 # Portfolio
 
-[![Main Workflow](https://github.com/j-mateos/Portfolio/actions/workflows/main.yml/badge.svg)](https://github.com/j-mateos/Portfolio/actions/workflows/main.yml)
-[![Develop Workflow](https://github.com/j-mateos/Portfolio/actions/workflows/develop.yml/badge.svg)](https://github.com/j-mateos/Portfolio/actions/workflows/develop.yml)
+[![Main workflow](https://github.com/j-mateos/Portfolio/actions/workflows/main.yml/badge.svg)](https://github.com/j-mateos/Portfolio/actions/workflows/main.yml)
+[![Dev workflow](https://github.com/j-mateos/Portfolio/actions/workflows/dev.yml/badge.svg)](https://github.com/j-mateos/Portfolio/actions/workflows/dev.yml)
 
 ## Description
 
