@@ -36,7 +36,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Wait for Vercel preview deployment
+      - name: Wait for preview deployment
         id: vercel
         uses: patrickedqvist/wait-for-vercel-preview@v1.3.3
         with:
@@ -78,12 +78,10 @@ jobs:
           ZAP_AUTH_HEADER: x-vercel-protection-bypass
           ZAP_AUTH_HEADER_VALUE: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
 
-      - name: Convert DAST results
-        uses: SvanBoxel/zaproxy-to-ghas@main
-
-      - name: Upload DAST results to GitHub Security
+      - name: Upload DAST report
         if: always()
-        uses: github/codeql-action/upload-sarif@v3
+        uses: actions/upload-artifact@v4
         with:
-          sarif_file: results.sarif
-          category: dast
+          name: dast-report
+          path: report_html.html
+          retention-days: 30
