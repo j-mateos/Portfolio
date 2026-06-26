@@ -1,0 +1,87 @@
+name: Security
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  security-events: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sast:
+    name: SAST
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Initialize SAST scan
+        uses: github/codeql-action/init@v4
+        with:
+          languages: javascript-typescript
+
+      - name: Run SAST analysis
+        uses: github/codeql-action/analyze@v4
+
+  dast:
+    name: DAST
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Wait for preview deployment
+        id: vercel
+        uses: patrickedqvist/wait-for-vercel-preview@v1.3.3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          max_timeout: 120
+          check_interval: 5
+
+      - name: Verify deployment
+        run: |
+          URL="${{ steps.vercel.outputs.url }}"
+
+          if [ -z "$URL" ]; then
+            echo "❌ No preview URL found"
+            exit 1
+          fi
+
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "x-vercel-protection-bypass: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}" \
+            "$URL")
+
+          echo "Deployment URL: $URL"
+          echo "HTTP status: $STATUS"
+
+          if [ "$STATUS" != "200" ]; then
+            echo "❌ Deployment returned status $STATUS"
+            exit 1
+          fi
+
+          echo "✅ Deployment accessible"
+
+      - name: Run DAST analysis
+        uses: zaproxy/action-baseline@v0.15.0
+        with:
+          target: ${{ steps.vercel.outputs.url }}
+          fail_action: false
+          allow_issue_writing: false
+          cmd_options: '-a'
+        env:
+          ZAP_AUTH_HEADER: x-vercel-protection-bypass
+          ZAP_AUTH_HEADER_VALUE: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+
+      - name: Upload DAST report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dast-report
+          path: report_html.html
+          retention-days: 30
