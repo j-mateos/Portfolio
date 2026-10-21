@@ -1,4 +1,3 @@
-import styles from './Header.module.css'
 import {useState, useEffect, useRef} from 'react'
 import {useTheme} from '@/context/ThemeContext'
 import {useTranslation} from 'react-i18next'
@@ -38,18 +37,14 @@ export function Header() {
         {key: 'en', label: 'English'},
     ]
 
-    // Methods to handle mode selection
-    const handleCurrentModeClick = () => setShowModes(!showModes)
-
+    // Handle mode selection
     const handleModeSelect = (selected) => {
         // setMode receives 'system', 'light', or 'dark'
         setMode(selected)
         setShowModes(false)
     }
 
-    // Methods to handle language selection
-    const handleCurrentLanguageClick = () => setShowLanguages(!showLanguages)
-
+    // Handle language selection
     const handleLanguageSelect = (lang) => {
         localStorage.setItem('app-language', lang)
         i18n.changeLanguage(lang)
@@ -75,45 +70,81 @@ export function Header() {
     }, [])
 
     return (
-        <header className={styles.header}>
-            <nav className={styles.nav}>
+        <header className="fixed top-0 z-20 mt-2.5 flex w-full items-center justify-center">
+            <nav className="nav-scroll relative flex gap-2 px-2 outline-1 outline-solid outline-(--transparent-color) [&>a]:p-2 [&>a]:font-medium [&>a]:whitespace-nowrap [&>a]:text-(--text-color) [&>a]:no-underline [&>a]:hover:cursor-pointer [&>a]:hover:text-(--bold-color) [&>div]:relative [&>div]:flex [&>div>*]:p-2 [&>div>*]:font-medium [&>div>*]:whitespace-nowrap [&>div>*]:text-(--text-color) [&>div>*]:no-underline">
                 <a href="#presentation">{t('header.navPresentation')}</a>
                 <a href="#experience">{t('header.navExperience')}</a>
                 <a href="#technologies">{t('header.navTechnologies')}</a>
                 <a href="#about-me">{t('header.navAboutMe')}</a>
 
                 {/* Mode selector */}
-                <div ref={modesRef}>
-                    <div className={styles['currentState']} onClick={handleCurrentModeClick}>
+                <div
+                    ref={modesRef}
+                    onMouseEnter={() => setShowModes(true)}
+                    onMouseLeave={() => setShowModes(false)}
+                    onBlur={(e) => {
+                        if (!e.currentTarget.contains(e.relatedTarget)) setShowModes(false)
+                    }}
+                >
+                    <button
+                        type="button"
+                        aria-label={t('header.modeLabel')}
+                        aria-expanded={showModes}
+                        className="flex cursor-pointer items-center justify-center [&>svg]:hover:scale-120 [&>svg_path]:fill-(--text-color)"
+                        onClick={() => setShowModes(true)}
+                    >
                         <SvgIcon name={selectedMode + 'Mode'} />
-                    </div>
+                    </button>
                     {showModes && (
-                        <div className={styles.states}>
+                        <div className="absolute top-12 flex w-25 flex-col gap-1 rounded-[5px] bg-(--background-color) text-(length:--small-font-size) outline-1 outline-solid outline-(--border-color) before:absolute before:inset-x-0 before:-top-4 before:h-4 max-tablet:right-0">
                             {modes.map((m) => (
-                                <span key={m.key} onClick={() => handleModeSelect(m.key)}>
+                                <button
+                                    type="button"
+                                    key={m.key}
+                                    className="px-2 py-1 text-left hover:cursor-pointer hover:text-(--bold-color)"
+                                    onClick={() => handleModeSelect(m.key)}
+                                >
                                     {m.label}
-                                </span>
+                                </button>
                             ))}
                         </div>
                     )}
                 </div>
 
                 {/* Language selector */}
-                <div ref={languagesRef}>
-                    <div className={styles['currentState']} onClick={handleCurrentLanguageClick}>
+                <div
+                    ref={languagesRef}
+                    onMouseEnter={() => setShowLanguages(true)}
+                    onMouseLeave={() => setShowLanguages(false)}
+                    onBlur={(e) => {
+                        if (!e.currentTarget.contains(e.relatedTarget)) setShowLanguages(false)
+                    }}
+                >
+                    <button
+                        type="button"
+                        aria-expanded={showLanguages}
+                        className="flex cursor-pointer items-center justify-center [&>img]:hover:scale-120"
+                        onClick={() => setShowLanguages(true)}
+                    >
                         <img
                             src={getFlagSrc(currentLanguage)}
-                            alt={`Bandera de ${currentLanguage}`}
-                            width={25}
-                            height={25}
+                            alt={t('header.flagAlt', {
+                                language: languages.find((l) => l.key === currentLanguage)?.label,
+                            })}
+                            className="size-6.25 object-contain"
                         />
-                    </div>
+                    </button>
                     {showLanguages && (
-                        <div className={styles.states}>
+                        <div className="absolute top-12 flex w-25 flex-col gap-1 rounded-[5px] bg-(--background-color) text-(length:--small-font-size) outline-1 outline-solid outline-(--border-color) before:absolute before:inset-x-0 before:-top-4 before:h-4 max-tablet:right-0">
                             {languages.map((l) => (
-                                <span key={l.key} onClick={() => handleLanguageSelect(l.key)}>
+                                <button
+                                    type="button"
+                                    key={l.key}
+                                    className="px-2 py-1 text-left hover:cursor-pointer hover:text-(--bold-color)"
+                                    onClick={() => handleLanguageSelect(l.key)}
+                                >
                                     {l.label}
-                                </span>
+                                </button>
                             ))}
                         </div>
                     )}
