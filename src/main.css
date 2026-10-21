@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 :root {
     /* Font family */
     --general-font-family:
@@ -56,26 +58,44 @@
     --technology-background-color: #1c2633;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: var(--general-font-family);
+        font-size: var(--medium-font-size);
+        background: var(--main-background-color);
+        color: var(--text-color);
+        min-width: var(--min-width);
+        min-height: var(--min-height);
+        overflow-x: hidden;
+    }
+
+    p {
+        text-wrap: pretty;
+    }
 }
 
-html {
-    scroll-behavior: smooth;
+@theme {
+    --breakpoint-tablet: 800px;
+    --breakpoint-desktop: 1280px;
+    --breakpoint-wide: 1920px;
 }
 
-body {
-    font-family: var(--general-font-family);
-    font-size: var(--medium-font-size);
-    background: var(--main-background-color);
-    color: var(--text-color);
-    min-width: var(--min-width);
-    min-height: var(--min-height);
-    overflow-x: hidden;
+@keyframes solidMenu {
+    to {
+        border-radius: 50px;
+        outline: var(--border-color) 1px solid;
+        background-color: var(--background-color);
+    }
 }
 
-p {
-    text-wrap: pretty;
+@utility nav-scroll {
+    @supports (animation-timeline: scroll()) {
+        animation: solidMenu 1s both;
+        animation-timeline: scroll(root);
+        animation-range: 0 1px;
+    }
 }
