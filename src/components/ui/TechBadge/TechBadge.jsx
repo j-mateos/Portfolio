@@ -1,4 +1,3 @@
-import styles from './TechBadge.module.css'
 import {useTheme} from '@/context/ThemeContext'
 
 const svgs = import.meta.glob('../../../assets/icons/*.svg', {
@@ -13,8 +12,13 @@ export function TechBadge({text, svgName, svgSize = 45}) {
     const src = svgs[`../../../assets/icons/${finalName}.svg`]
 
     return (
-        <div className={styles.techBadge}>
-            <img src={src} width={svgSize} height={svgSize} />
+        <div className="flex flex-col items-center justify-center gap-2.5 [&>p]:whitespace-nowrap">
+            <img
+                src={src}
+                alt=""
+                style={{width: svgSize, height: svgSize}}
+                className="object-contain"
+            />
             <p>{text}</p>
         </div>
     )

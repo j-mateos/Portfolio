@@ -6,7 +6,9 @@
         "navAboutMe": "Sobre mí",
         "modeSystem": "Sistema",
         "modeLight": "Claro",
-        "modeDark": "Oscuro"
+        "modeDark": "Oscuro",
+        "flagAlt": "Idioma: {{language}}",
+        "modeLabel": "Modo de color"
     },
     "presentation": {
         "photoAlt": "Imagen personal",

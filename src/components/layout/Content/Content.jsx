@@ -1,4 +1,3 @@
-import styles from './Content.module.css'
 import {useTranslation} from 'react-i18next'
 import image from '@/assets/images/personal.webp'
 import {Subtitle} from '@/components/ui/Subtitle/Subtitle'
@@ -11,14 +10,23 @@ export function Content() {
     const {t} = useTranslation()
 
     return (
-        <main className={styles.content}>
-            <section id="presentation" className={styles.presentation}>
+        <main className="mx-auto mt-30 max-w-1/2 min-w-(--min-width) [&>section]:scroll-mt-12.5 [&>section]:p-12 max-tablet:[&>section]:flex max-tablet:[&>section]:flex-col max-tablet:[&>section]:items-center wide:[&>section]:flex wide:[&>section]:flex-col wide:[&>section]:items-center">
+            <section
+                id="presentation"
+                className="flex items-center justify-center gap-12 tablet:max-desktop:flex-wrap wide:flex-row!"
+            >
                 <div>
-                    <img src={image} alt={t('presentation.photoAlt')} className={styles.image} />
+                    <img
+                        src={image}
+                        alt={t('presentation.photoAlt')}
+                        className="max-w-60 rounded-[50%]"
+                    />
                 </div>
-                <div>
-                    <h1>{t('presentation.greeting')}</h1>
-                    <p>
+                <div className="max-tablet:text-center">
+                    <h1 className="mb-6 text-(length:--xlarge-font-size) font-bold whitespace-nowrap">
+                        {t('presentation.greeting')}
+                    </h1>
+                    <p className="mb-8 w-93.5 [&>strong]:font-medium [&>strong]:text-(--bold-color)">
                         {t('presentation.p1.part1')}&nbsp;
                         <strong>{t('presentation.p1.bold1')}</strong>&nbsp;
                         {t('presentation.p1.part2')}
@@ -29,7 +37,7 @@ export function Content() {
                         <strong>{t('presentation.p2.bold2')}</strong>
                         {t('presentation.p2.part3')}
                     </p>
-                    <div className={styles.contentButtons}>
+                    <div className="flex gap-4">
                         <AnimatedButton
                             text={t('presentation.emailBtn')}
                             backgroundText={t('presentation.emailBackgroundText')}
@@ -51,9 +59,9 @@ export function Content() {
                 </div>
             </section>
 
-            <section id="experience" className={styles.experience}>
+            <section id="experience">
                 <Subtitle text={t('experience.title')} svgName="experience" />
-                <ol>
+                <ol className="ml-[0.8rem] flex flex-col gap-6">
                     <JobRole
                         title={t('experience.job1.title')}
                         company={t('experience.job1.company')}
@@ -78,9 +86,9 @@ export function Content() {
                 </ol>
             </section>
 
-            <section id="technologies" className={styles.technologies}>
+            <section id="technologies">
                 <Subtitle text={t('technologies.title')} svgName="technologies" />
-                <p>
+                <p className="mb-10 max-tablet:text-center wide:text-center [&>strong]:font-medium [&>strong]:text-(--bold-color)">
                     {t('technologies.p1.part1')}&nbsp;
                     <strong>{t('technologies.p1.bold1')}</strong>&nbsp;
                     {t('technologies.p1.part2')}&nbsp;
@@ -88,21 +96,27 @@ export function Content() {
                     <strong>{t('technologies.p2.bold1')}</strong>&nbsp;
                     {t('technologies.p2.part2')}
                 </p>
-                <div>
-                    <article>
-                        <h3>{t('technologies.frontend')}</h3>
-                        <aside>
+                <div className="grid w-full grid-cols-2 gap-6 max-desktop:grid-cols-1">
+                    <article className="rounded-2xl bg-(--technology-background-color) p-8 pb-16 outline-1 outline-solid outline-(--border-color)">
+                        <h3 className="mb-10 text-center text-(length:--large-font-size) font-bold">
+                            {t('technologies.frontend')}
+                        </h3>
+                        <aside className="grid grid-cols-[repeat(auto-fill,minmax(70px,1fr))] gap-6">
+                            <TechBadge text="React" svgName="react" />
+                            <TechBadge text="JavaScript" svgName="javascript" />
+                            <TechBadge text="Bootstrap" svgName="bootstrap" />
                             <TechBadge text="HTML" svgName="html" />
                             <TechBadge text="CSS" svgName="css" />
-                            <TechBadge text="Bootstrap" svgName="bootstrap" />
-                            <TechBadge text="JavaScript" svgName="javascript" />
                             <TechBadge text="Figma" svgName="figma" />
                         </aside>
                     </article>
-                    <article>
-                        <h3>{t('technologies.backend')}</h3>
-                        <aside>
+                    <article className="rounded-2xl bg-(--technology-background-color) p-8 pb-16 outline-1 outline-solid outline-(--border-color)">
+                        <h3 className="mb-10 text-center text-(length:--large-font-size) font-bold">
+                            {t('technologies.backend')}
+                        </h3>
+                        <aside className="grid grid-cols-[repeat(auto-fill,minmax(70px,1fr))] gap-6">
                             <TechBadge text="Java" svgName="java" />
+                            <TechBadge text="Spring" svgName="spring" />
                             <TechBadge text="NodeJS" svgName="nodejs" />
                             <TechBadge text="Python" svgName="python" />
                             <TechBadge text="C++" svgName="c++" />
@@ -112,20 +126,22 @@ export function Content() {
                             <TechBadge text="MySQL" svgName="mysql" />
                         </aside>
                     </article>
-                    <article>
-                        <h3>{t('technologies.tools')}</h3>
-                        <aside>
+                    <article className="rounded-2xl bg-(--technology-background-color) p-8 pb-16 outline-1 outline-solid outline-(--border-color)">
+                        <h3 className="mb-10 text-center text-(length:--large-font-size) font-bold">
+                            {t('technologies.tools')}
+                        </h3>
+                        <aside className="grid grid-cols-[repeat(auto-fill,minmax(70px,1fr))] gap-6">
                             <TechBadge text="Git" svgName="git" />
+                            <TechBadge text="Docker" svgName="docker" />
                             <TechBadge text="Bash" svgName="bash" />
                             <TechBadge text="VSCode" svgName="vscode" />
                         </aside>
                     </article>
-                    <article>
-                        <h3>{t('technologies.learning')}</h3>
-                        <aside>
-                            <TechBadge text="React" svgName="react" />
-                            <TechBadge text="Spring" svgName="spring" />
-                            <TechBadge text="Docker" svgName="docker" />
+                    <article className="rounded-2xl bg-(--technology-background-color) p-8 pb-16 outline-1 outline-solid outline-(--border-color)">
+                        <h3 className="mb-10 text-center text-(length:--large-font-size) font-bold">
+                            {t('technologies.learning')}
+                        </h3>
+                        <aside className="grid grid-cols-[repeat(auto-fill,minmax(70px,1fr))] gap-6">
                             <TechBadge text="Kubernetes" svgName="kubernetes" />
                             <TechBadge text="AWS" svgName="aws" />
                         </aside>
@@ -133,9 +149,9 @@ export function Content() {
                 </div>
             </section>
 
-            <section id="about-me" className={styles.aboutMe}>
+            <section id="about-me" className="max-tablet:text-center wide:text-center">
                 <Subtitle text={t('aboutMe.title')} svgName="aboutMe" />
-                <div>
+                <div className="[&>p:first-child]:mb-6 [&>p>strong]:font-normal [&>p>strong]:text-(--bold-color)">
                     <p>
                         {t('aboutMe.p1.part1')}&nbsp;
                         <strong>{t('aboutMe.p1.bold1')}</strong>
