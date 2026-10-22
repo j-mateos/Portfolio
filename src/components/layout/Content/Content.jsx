@@ -104,6 +104,7 @@ export function Content() {
                         <aside className="grid grid-cols-[repeat(auto-fill,minmax(70px,1fr))] gap-6">
                             <TechBadge text="React" svgName="react" />
                             <TechBadge text="JavaScript" svgName="javascript" />
+                            <TechBadge text="Tailwind" svgName="tailwind" />
                             <TechBadge text="Bootstrap" svgName="bootstrap" />
                             <TechBadge text="HTML" svgName="html" />
                             <TechBadge text="CSS" svgName="css" />
@@ -133,6 +134,7 @@ export function Content() {
                         <aside className="grid grid-cols-[repeat(auto-fill,minmax(70px,1fr))] gap-6">
                             <TechBadge text="Git" svgName="git" />
                             <TechBadge text="Docker" svgName="docker" />
+                            <TechBadge text="Proxmox" svgName="proxmox" />
                             <TechBadge text="Bash" svgName="bash" />
                             <TechBadge text="VSCode" svgName="vscode" />
                         </aside>
