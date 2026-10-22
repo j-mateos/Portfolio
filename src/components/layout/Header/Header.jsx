@@ -62,12 +62,18 @@ export function Header() {
         }
     }
 
+    // Detect clicks outside the component
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside)
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
     }, [])
+
+    // Keep the <html lang> attribute in sync with the active language
+    useEffect(() => {
+        document.documentElement.lang = i18n.language
+    }, [i18n.language])
 
     return (
         <header className="fixed top-0 z-20 mt-2.5 flex w-full items-center justify-center">

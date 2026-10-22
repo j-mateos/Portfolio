@@ -1,49 +1,49 @@
 import {createContext, useContext, useEffect, useState} from 'react'
 
-const getSystemMode = () =>
-    window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches
-        ? 'light'
-        : 'dark'
+const STORAGE_KEY = 'theme-mode'
+const VALID_MODES = ['system', 'light', 'dark']
+const LIGHT_QUERY = '(prefers-color-scheme: light)'
+
+const getSystemMode = () => (window.matchMedia?.(LIGHT_QUERY).matches ? 'light' : 'dark')
+
+const getSavedMode = () => {
+    const saved = localStorage.getItem(STORAGE_KEY)
+    // By default, use 'system' mode
+    return VALID_MODES.includes(saved) ? saved : 'system'
+}
 
 const ThemeContext = createContext(['dark', () => {}, 'dark'])
 
-const useSystemModeListener = (setMode) => {
-    useEffect(() => {
-        const mediaQuery = window.matchMedia('(prefers-color-scheme: light)')
+export function ThemeProvider({children}) {
+    const [selectedMode, setSelectedMode] = useState(getSavedMode)
+    const [systemMode, setSystemMode] = useState(getSystemMode)
 
-        const handleChange = () => {
-            const savedMode = localStorage.getItem('theme-mode')
-            if (savedMode === 'system') setMode('system')
-        }
+    const currentMode = selectedMode === 'system' ? systemMode : selectedMode
+
+    // Keeps track of system changes while the page is open
+    useEffect(() => {
+        const mediaQuery = window.matchMedia(LIGHT_QUERY)
+        const handleChange = () => setSystemMode(getSystemMode())
 
         mediaQuery.addEventListener('change', handleChange)
-
         return () => mediaQuery.removeEventListener('change', handleChange)
-    }, [setMode])
-}
-
-export function ThemeProvider({children}) {
-    const [selectedMode, setSelectedMode] = useState(() => {
-        const saved = localStorage.getItem('theme-mode')
-        if (saved === 'light' || saved === 'dark' || saved === 'system') return saved
-
-        // By default, use 'system' mode
-        return 'system'
-    })
-
-    const currentMode = selectedMode === 'system' ? getSystemMode() : selectedMode
-
-    useSystemModeListener(setSelectedMode)
+    }, [])
 
     useEffect(() => {
-        localStorage.setItem('theme-mode', selectedMode)
         document.documentElement.classList.remove('light', 'dark')
         document.documentElement.classList.add(currentMode)
-    }, [selectedMode, currentMode])
+    }, [currentMode])
 
-    // Return [currentMode, setSelectedMode, selectedMode]
+    // Only saves when the user actively chooses a mode
+    const setMode = (mode) => {
+        if (!VALID_MODES.includes(mode)) return
+        setSelectedMode(mode)
+        localStorage.setItem(STORAGE_KEY, mode)
+    }
+
+    // Return [currentMode, setMode, selectedMode]
     return (
-        <ThemeContext.Provider value={[currentMode, setSelectedMode, selectedMode]}>
+        <ThemeContext.Provider value={[currentMode, setMode, selectedMode]}>
             {children}
         </ThemeContext.Provider>
     )
