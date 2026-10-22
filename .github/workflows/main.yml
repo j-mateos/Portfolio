@@ -23,12 +23,12 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Initialize SAST scan
-        uses: github/codeql-action/init@v4
+        uses: github/codeql-action/init@v4.37.3
         with:
           languages: javascript-typescript
 
       - name: Run SAST analysis
-        uses: github/codeql-action/analyze@v4
+        uses: github/codeql-action/analyze@v4.37.3
 
   dast:
     name: DAST
