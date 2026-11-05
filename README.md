@@ -14,14 +14,6 @@ bun run dev
 
 The server will start at `http://localhost:5173`.
 
-Alternatively, you can use Docker:
-
-```bash
-docker compose -f ./docker/compose.yml up
-```
-
-The server will start at `http://localhost:3000`.
-
 ## Description
 
 This is my personal web portfolio, showcasing my skills, professional experience, and the technologies I am familiar with. It includes support for multiple languages (Spanish and English), theme modes (light, dark, and system), and it is designed to provide a fully responsive experience on any device.
@@ -48,5 +40,4 @@ This is my personal web portfolio, showcasing my skills, professional experience
 - **Prettier**: Code formatting.
 - **ESLint**: Code analysis.
 - **Vitest**: Testing framework with React integration.
-- **Docker**: Container management for development and deployment.
 - **GitHub Actions**: CI/CD pipelines for linting, testing, building, static security testing (SAST) and dynamic security testing (DAST).
