@@ -22,12 +22,12 @@
     "dependencies": {
         "@eslint/js": "10.0.1",
         "@vercel/analytics": "2.0.1",
-        "i18next": "26.7.1",
+        "i18next": "26.7.2",
         "i18next-http-backend": "4.0.10",
         "prettier": "3.9.10",
         "react": "19.3.1",
         "react-dom": "19.3.1",
-        "react-i18next": "17.1.12"
+        "react-i18next": "17.1.13"
     },
     "devDependencies": {
         "@eslint/compat": "2.1.1",
@@ -48,7 +48,7 @@
         "globals": "17.14.0",
         "happy-dom": "21.0.4",
         "tailwindcss": "4.3.4",
-        "vite": "8.3.5",
+        "vite": "8.3.6",
         "vitest": "5.1.0"
     }
 }
