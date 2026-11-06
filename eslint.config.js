@@ -18,7 +18,7 @@ const compat = new FlatCompat({
 
 export default defineConfig([
     {
-        ignores: ['dist/', 'docker/', 'node_modules/'],
+        ignores: ['dist/', 'node_modules/'],
     },
     js.configs.recommended,
     {

@@ -1,4 +1,4 @@
-export function JobRole({title, company, startDate, endDate, description}) {
+export function ExperienceItem({title, company, startDate, endDate, description}) {
     return (
         <li className="relative flex flex-col border-l border-(--text-color) pl-8 [&>span]:mb-2 [&>span]:font-[350] [&>span]:text-(--job-date-color) [&>ul]:mb-2 [&>ul]:list-none">
             <div className="absolute top-1.5 left-0 -translate-x-1/2 w-3.75 h-3.75 rounded-full shadow-[0_0_0_6px_var(--border-color,white)] bg-white"></div>

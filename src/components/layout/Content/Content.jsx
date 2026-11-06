@@ -2,7 +2,8 @@ import {useTranslation} from 'react-i18next'
 import image from '@/assets/images/personal.webp'
 import {Subtitle} from '@/components/ui/Subtitle/Subtitle'
 import {TechBadge} from '@/components/ui/TechBadge/TechBadge'
-import {JobRole} from '@/components/ui/JobRole/JobRole'
+import {TechSection} from '@/components/ui/TechSection/TechSection'
+import {ExperienceItem} from '@/components/ui/ExperienceItem/ExperienceItem'
 import {LinkButton} from '@/components/ui/LinkButton/LinkButton'
 import {AnimatedButton} from '@/components/ui/AnimatedButton/AnimatedButton'
 
@@ -62,21 +63,21 @@ export function Content() {
             <section id="experience">
                 <Subtitle text={t('experience.title')} svgName="experience" />
                 <ol className="ml-[0.8rem] flex flex-col gap-6">
-                    <JobRole
+                    <ExperienceItem
                         title={t('experience.job1.title')}
                         company={t('experience.job1.company')}
                         startDate={t('experience.job1.startDate')}
                         endDate={t('experience.job1.endDate')}
                         description={[t('experience.job1.desc1')]}
                     />
-                    <JobRole
+                    <ExperienceItem
                         title={t('experience.job2.title')}
                         company={t('experience.job2.company')}
                         startDate={t('experience.job2.startDate')}
                         endDate={t('experience.job2.endDate')}
                         description={[t('experience.job2.desc1'), t('experience.job2.desc2')]}
                     />
-                    <JobRole
+                    <ExperienceItem
                         title={t('experience.job3.title')}
                         company={t('experience.job3.company')}
                         startDate={t('experience.job3.startDate')}
@@ -97,57 +98,37 @@ export function Content() {
                     {t('technologies.p2.part2')}
                 </p>
                 <div className="grid w-full grid-cols-2 gap-6 max-desktop:grid-cols-1">
-                    <article className="rounded-2xl bg-(--technology-background-color) p-8 pb-16 outline-1 outline-solid outline-(--border-color)">
-                        <h3 className="mb-10 text-center text-(length:--large-font-size) font-bold">
-                            {t('technologies.frontend')}
-                        </h3>
-                        <aside className="grid grid-cols-[repeat(auto-fill,minmax(70px,1fr))] gap-6">
-                            <TechBadge text="React" svgName="react" />
-                            <TechBadge text="JavaScript" svgName="javascript" />
-                            <TechBadge text="Tailwind" svgName="tailwind" />
-                            <TechBadge text="Bootstrap" svgName="bootstrap" />
-                            <TechBadge text="HTML" svgName="html" />
-                            <TechBadge text="CSS" svgName="css" />
-                            <TechBadge text="Figma" svgName="figma" />
-                        </aside>
-                    </article>
-                    <article className="rounded-2xl bg-(--technology-background-color) p-8 pb-16 outline-1 outline-solid outline-(--border-color)">
-                        <h3 className="mb-10 text-center text-(length:--large-font-size) font-bold">
-                            {t('technologies.backend')}
-                        </h3>
-                        <aside className="grid grid-cols-[repeat(auto-fill,minmax(70px,1fr))] gap-6">
-                            <TechBadge text="Java" svgName="java" />
-                            <TechBadge text="Spring" svgName="spring" />
-                            <TechBadge text="NodeJS" svgName="nodejs" />
-                            <TechBadge text="Python" svgName="python" />
-                            <TechBadge text="C++" svgName="c++" />
-                            <TechBadge text="C" svgName="c" />
-                            <TechBadge text="Ruby" svgName="ruby" />
-                            <TechBadge text="PostgreSQL" svgName="postgresql" />
-                            <TechBadge text="MySQL" svgName="mysql" />
-                        </aside>
-                    </article>
-                    <article className="rounded-2xl bg-(--technology-background-color) p-8 pb-16 outline-1 outline-solid outline-(--border-color)">
-                        <h3 className="mb-10 text-center text-(length:--large-font-size) font-bold">
-                            {t('technologies.tools')}
-                        </h3>
-                        <aside className="grid grid-cols-[repeat(auto-fill,minmax(70px,1fr))] gap-6">
-                            <TechBadge text="Git" svgName="git" />
-                            <TechBadge text="Docker" svgName="docker" />
-                            <TechBadge text="Proxmox" svgName="proxmox" />
-                            <TechBadge text="Bash" svgName="bash" />
-                            <TechBadge text="VSCode" svgName="vscode" />
-                        </aside>
-                    </article>
-                    <article className="rounded-2xl bg-(--technology-background-color) p-8 pb-16 outline-1 outline-solid outline-(--border-color)">
-                        <h3 className="mb-10 text-center text-(length:--large-font-size) font-bold">
-                            {t('technologies.learning')}
-                        </h3>
-                        <aside className="grid grid-cols-[repeat(auto-fill,minmax(70px,1fr))] gap-6">
-                            <TechBadge text="Kubernetes" svgName="kubernetes" />
-                            <TechBadge text="AWS" svgName="aws" />
-                        </aside>
-                    </article>
+                    <TechSection title={t('technologies.frontend')}>
+                        <TechBadge text="React" svgName="react" />
+                        <TechBadge text="JavaScript" svgName="javascript" />
+                        <TechBadge text="Tailwind" svgName="tailwind" />
+                        <TechBadge text="Bootstrap" svgName="bootstrap" />
+                        <TechBadge text="HTML" svgName="html" />
+                        <TechBadge text="CSS" svgName="css" />
+                        <TechBadge text="Figma" svgName="figma" />
+                    </TechSection>
+                    <TechSection title={t('technologies.backend')}>
+                        <TechBadge text="Java" svgName="java" />
+                        <TechBadge text="Spring" svgName="spring" />
+                        <TechBadge text="NodeJS" svgName="nodejs" />
+                        <TechBadge text="Python" svgName="python" />
+                        <TechBadge text="C++" svgName="c++" />
+                        <TechBadge text="C" svgName="c" />
+                        <TechBadge text="Ruby" svgName="ruby" />
+                        <TechBadge text="PostgreSQL" svgName="postgresql" />
+                        <TechBadge text="MySQL" svgName="mysql" />
+                    </TechSection>
+                    <TechSection title={t('technologies.tools')}>
+                        <TechBadge text="Git" svgName="git" />
+                        <TechBadge text="Docker" svgName="docker" />
+                        <TechBadge text="Proxmox" svgName="proxmox" />
+                        <TechBadge text="Bash" svgName="bash" />
+                        <TechBadge text="VSCode" svgName="vscode" />
+                    </TechSection>
+                    <TechSection title={t('technologies.learning')}>
+                        <TechBadge text="Kubernetes" svgName="kubernetes" />
+                        <TechBadge text="AWS" svgName="aws" />
+                    </TechSection>
                 </div>
             </section>
 
