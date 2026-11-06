@@ -4,7 +4,7 @@ import {ThemeProvider} from '../context/ThemeContext'
 import i18next from 'i18next'
 import {initReactI18next} from 'react-i18next'
 
-// Creamos una instancia de i18n real pero configurada para tests (sin red)
+// i18n instance but configured for tests
 const i18nMock = i18next.createInstance()
 i18nMock.use(initReactI18next).init({
     lng: 'es',

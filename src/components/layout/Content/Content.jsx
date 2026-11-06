@@ -62,7 +62,7 @@ export function Content() {
 
             <section id="experience">
                 <Subtitle text={t('experience.title')} svgName="experience" />
-                <ul className="ml-[0.8rem] flex flex-col gap-6 list-none">
+                <ol className="ml-[0.8rem] flex flex-col gap-6">
                     <ExperienceItem
                         title={t('experience.job1.title')}
                         company={t('experience.job1.company')}
@@ -84,7 +84,7 @@ export function Content() {
                         endDate={t('experience.job3.endDate')}
                         description={[t('experience.job3.desc1'), t('experience.job3.desc2')]}
                     />
-                </ul>
+                </ol>
             </section>
 
             <section id="technologies">
