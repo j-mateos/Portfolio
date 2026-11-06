@@ -5,7 +5,6 @@ import {describe, it, expect} from 'vitest'
 describe('Footer', () => {
     it('should render correctly', () => {
         render(<Footer />)
-        // Check if it renders content (e.g., standard text)
         expect(screen.getByRole('contentinfo')).toBeInTheDocument()
     })
 })
